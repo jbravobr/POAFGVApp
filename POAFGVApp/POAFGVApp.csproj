@@ -45,6 +45,7 @@
     <Compile Include="Models\Enums\EnumPaymentType.cs" />
     <Compile Include="Utils\Extensions\EnumDescriptionAttribute.cs" />
     <Compile Include="Utils\Extensions\GetEnumDescriptionAttribute.cs" />
+    <Compile Include="Utils\Extensions\IEnumerableExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
