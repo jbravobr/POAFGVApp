@@ -1,7 +1,7 @@
 ﻿using System;
 namespace POAFGVApp
 {
-    public class User
+    public class User : BaseEntity
     { 
         public string Name { get; set; }
         public string Login { get; set; }

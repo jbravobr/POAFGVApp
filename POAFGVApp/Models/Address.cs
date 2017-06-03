@@ -1,7 +1,7 @@
 ﻿using System;
 namespace POAFGVApp
 {
-    public class Address
+    public class Address : BaseEntity
     {
         public string Bourgh { get; set; }
         public string Street { get; set; }
