@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    x:Name="Root"
+    x:Class="POAFGVApp.Views.DashboardButton">
+    <StackLayout
+        Orientation="Vertical">
+        <ffimageloading:CachedImage
+            x:Name="DashboardButtonIcon"
+            HorizontalOptions="Center"
+            HeightRequest="64"
+            WidthRequest="64"
+            Source="{Binding Icon}">
+        </ffimageloading:CachedImage>
+        <Label
+            x:Name="DashboardButtonLabel"
+            HorizontalOptions="Center"
+            Text="{Binding Label}"
+            TextColor="#3A444D" />
+    </StackLayout>
+</ContentView>

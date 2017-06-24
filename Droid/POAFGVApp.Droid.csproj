@@ -122,6 +122,18 @@
     <Reference Include="SQLiteNetExtensions">
       <HintPath>..\packages\SQLiteNetExtensions.2.0.0-alpha2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\SQLiteNetExtensions.dll</HintPath>
     </Reference>
+    <Reference Include="FFImageLoading">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.2.9\lib\MonoAndroid10\FFImageLoading.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Platform">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.2.9\lib\MonoAndroid10\FFImageLoading.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Forms.2.2.9\lib\MonoAndroid10\FFImageLoading.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms.Droid">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Forms.2.2.9\lib\MonoAndroid10\FFImageLoading.Forms.Droid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\POAFGVApp\POAFGVApp.csproj">
@@ -151,6 +163,8 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable\usuario.png" />
     <AndroidResource Include="Resources\drawable\cadeado.png" />
+    <AndroidResource Include="Resources\drawable\list.png" />
+    <AndroidResource Include="Resources\drawable\chat.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DependencyServices\" />

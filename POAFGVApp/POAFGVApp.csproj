@@ -57,6 +57,11 @@
     <Compile Include="Views\DashboardPage.xaml.cs">
       <DependentUpon>DashboardPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\DashboardButton.xaml.cs">
+      <DependentUpon>DashboardButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\DashboardPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -101,6 +106,15 @@
     <Reference Include="SQLiteNetExtensions">
       <HintPath>..\packages\SQLiteNetExtensions.2.0.0-alpha2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\SQLiteNetExtensions.dll</HintPath>
     </Reference>
+    <Reference Include="FFImageLoading">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.2.9\lib\portable-net45+win8+wpa81+wp8\FFImageLoading.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Platform">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.2.9\lib\portable-net45+win8+wpa81+wp8\FFImageLoading.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Forms.2.2.9\lib\portable-net45+win8+wpa81+wp8\FFImageLoading.Forms.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -118,6 +132,7 @@
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Theme\" />
+    <Folder Include="Views\Controls\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\LoginPage.xaml">
@@ -127,6 +142,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DashboardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Controls\DashboardButton.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

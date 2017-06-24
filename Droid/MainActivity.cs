@@ -7,6 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using FFImageLoading.Forms.Droid;
 
 namespace POAFGVApp.Droid
 {
@@ -21,6 +22,9 @@ namespace POAFGVApp.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+			//Init FFImageLoading 
+			CachedImageRenderer.Init();
 
             LoadApplication(new App());
         }

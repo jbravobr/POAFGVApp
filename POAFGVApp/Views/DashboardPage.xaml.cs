@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace POAFGVApp
+namespace POAFGVApp.Views
 {
     public partial class DashboardPage : ContentPage
     {

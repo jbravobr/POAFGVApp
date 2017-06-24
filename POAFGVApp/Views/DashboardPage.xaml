@@ -1,9 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage
-	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	x:Class="POAFGVApp.DashboardPage">
-	<ContentPage.Content>
-        <Label Text="Teste!!!!" />
-	</ContentPage.Content>
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    xmlns:styles="clr-namespace:POAFGVApp"
+    xmlns:controls="clr-namespace:POAFGVApp.Views"
+    Title="INÍCIO"
+    x:Class="POAFGVApp.Views.DashboardPage">
+    <Grid
+        RowSpacing="0"
+        BackgroundColor="{x:Static styles:MainTheme.Row1BackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="25" />
+            <RowDefinition
+                Height="*" />
+            <RowDefinition
+                Height="50" />
+        </Grid.RowDefinitions>
+        <BoxView
+            Grid.Row="1"
+            Color="{x:Static styles:MainTheme.Row1BackgroundColor}" />
+        <BoxView
+            Grid.Row="2"
+            Color="{x:Static styles:MainTheme.BaseLoginPageColor}" />
+        <Grid
+            Grid.Row="1"
+            ColumnSpacing="30"
+            HorizontalOptions="Center"
+            RowSpacing="30"
+            VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="*" />
+                <RowDefinition
+                    Height="*" />
+                <RowDefinition
+                    Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            <controls:DashboardButton
+                x:Name="btnNewNotice"
+                Grid.Row="0"
+                Grid.Column="0"
+                Icon="chat.png"
+                Label="Fazer Pedido">
+                <controls:DashboardButton.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding MenuSelectCmd}"
+                        CommandParameter="1" />
+                </controls:DashboardButton.GestureRecognizers>
+            </controls:DashboardButton>
+            <controls:DashboardButton
+                x:Name="btnListNotices"
+                Grid.Row="1"
+                Grid.Column="0"
+                Icon="list.png"
+                Label="Pedidos">
+                <controls:DashboardButton.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding MenuSelectCmd}"
+                        CommandParameter="2" />
+                </controls:DashboardButton.GestureRecognizers>
+            </controls:DashboardButton>
+            <!--<controls:DashboardButton
+                x:Name="btnSetup"
+                Grid.Row="2"
+                Grid.Column="0"
+                Icon="user.png"
+                Label="Configurações">
+                <controls:DashboardButton.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding MenuSelectCmd}"
+                        CommandParameter="3" />
+                </controls:DashboardButton.GestureRecognizers>
+            </controls:DashboardButton>-->
+        </Grid>
+    </Grid>
 </ContentPage>

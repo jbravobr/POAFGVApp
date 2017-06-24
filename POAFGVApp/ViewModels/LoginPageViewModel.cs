@@ -36,12 +36,12 @@ namespace POAFGVApp.ViewModels
                                                 await _pageDialogService.DisplayAlertAsync("Erro", "Usurio/Senha inválidos", "OK");
                                             }
 
-                                            //TODO: consultar na fonte os dados
+                                            ////TODO: consultar na fonte os dados
 
-                                            if (1 == 1)
-                                                await _pageDialogService.DisplayAlertAsync("Navegação", "Acessando página principal", "OK");
+                                            //if (1 == 1)
+                                            //await _pageDialogService.DisplayAlertAsync("Navegação", "Acessando página principal", "OK");
 
-                                            await _navigationService.NavigateAsync(new Uri("myapp:///DashboardPage", UriKind.Absolute));
+                                            await _navigationService.NavigateAsync(new Uri("myapp:///NavigationPage/DashboardPage", UriKind.Absolute));
                                         });
     }
 }
