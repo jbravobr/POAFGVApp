@@ -8,11 +8,16 @@ namespace POAFGVApp.Droid
     {
 		public SQLiteConnection GetConn()
 		{
-			var sqliteFilename = "poafgvdb.db3";
-			string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-			var path = Path.Combine(documentsPath, sqliteFilename);
-			var conn = new SQLiteConnection(path);
-			return conn;
+			try
+            {
+                var sqliteFilename = "poafgvdb.db3";
+                string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                var path = Path.Combine(documentsPath, sqliteFilename);
+                var conn = new SQLiteConnection(path);
+                return conn;
+			} catch (Exception ex) {
+                throw ex;
+			}
 		}
     }
 }

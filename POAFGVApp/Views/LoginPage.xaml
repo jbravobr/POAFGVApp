@@ -2,9 +2,10 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:prism="clr-namespace=Prism.Mvvm;assembly:Prism.Forms"
-    xmlns:styles="clr-namespace=POAFGVApp"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:styles="clr-namespace:POAFGVApp"
     prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="Blue"
     x:Class="POAFGVApp.Views.LoginPage">
     <ContentPage.Content>
         <Grid

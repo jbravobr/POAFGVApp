@@ -8,9 +8,16 @@
 
         DBContext()
         {
-            conn = Xamarin.Forms.DependencyService
-                          .Get<ISQLite>(Xamarin.Forms.DependencyFetchTarget.GlobalInstance)
-                          .GetConn();
+            try
+            {
+                conn = Xamarin.Forms.DependencyService
+                              .Get<ISQLite>(Xamarin.Forms.DependencyFetchTarget.GlobalInstance)
+                              .GetConn();
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public static SQLite.SQLiteConnection Instance
