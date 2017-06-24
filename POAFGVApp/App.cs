@@ -2,6 +2,8 @@
 using Xamarin.Forms.Xaml;
 using Prism.Unity;
 using System;
+using POAFGVApp.Views;
+using Microsoft.Practices.Unity;
 
 namespace POAFGVApp
 {
@@ -17,7 +19,18 @@ namespace POAFGVApp
 
         protected override void RegisterTypes()
         {
-            throw new NotImplementedException();
+            // Registrando Views para navegação
+            Container.RegisterTypeForNavigation<LoginPage>();
+			Container.RegisterTypeForNavigation<NavigationPage>();
+
+			// Registrando IoC
+			Container.RegisterType(typeof(IBaseRepository<>),
+                                   typeof(BaseRepository<>),
+                                   new ContainerControlledLifetimeManager());
+
+            Container.RegisterType(typeof(IBaseApplicationService<>),
+                                  typeof(BaseApplicationService<>),
+                                  new ContainerControlledLifetimeManager());
         }
     }
 }
