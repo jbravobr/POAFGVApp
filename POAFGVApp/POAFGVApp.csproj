@@ -50,6 +50,7 @@
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
+    <Compile Include="Theme\MainTheme.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -110,6 +111,7 @@
     <Folder Include="Utils\Extensions\" />
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Theme\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\LoginPage.xaml">

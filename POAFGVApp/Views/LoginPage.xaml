@@ -1,10 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage
-	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:prism="clr-namespace=Prism.Mvvm;assembly:Prism.Forms"
+    xmlns:styles="clr-namespace=POAFGVApp"
     prism:ViewModelLocator.AutowireViewModel="True"
-	x:Class="POAFGVApp.Views.LoginPage">
-	<ContentPage.Content>
-	</ContentPage.Content>
+    x:Class="POAFGVApp.Views.LoginPage">
+    <ContentPage.Content>
+        <Grid
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="FillAndExpand"
+            WidthRequest="244">
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="*" />
+            </Grid.RowDefinitions>
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="0,70,0,50"
+                Aspect="AspectFill"
+                HorizontalOptions="Center"
+                Source="logotipo.png"
+                VerticalOptions="CenterAndExpand" />
+            <StackLayout
+                Grid.Row="1"
+                Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                    HeightRequest="0.5"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center" />
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Horizontal"
+                    VerticalOptions="FillAndExpand"
+                    WidthRequest="244">
+                    <Image
+                        Aspect="AspectFill"
+                        HorizontalOptions="Start"
+                        Source="usuario.png"
+                        VerticalOptions="Center" />
+                    <Entry
+                        HorizontalOptions="StartAndExpand"
+                        Placeholder="Usuário"
+                        PlaceholderColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                        Text="{Binding Login}"
+                        TextColor="White"
+                        VerticalOptions="FillAndExpand"
+                        WidthRequest="200" />
+                </StackLayout>
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="White"
+                    HeightRequest="0.5"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center" />
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Horizontal"
+                    VerticalOptions="FillAndExpand">
+                    <Image
+                        Aspect="AspectFill"
+                        HorizontalOptions="Start"
+                        Source="cadeado.png"
+                        VerticalOptions="Center" />
+                    <Entry
+                        HorizontalOptions="StartAndExpand"
+                        IsPassword="True"
+                        Placeholder="*****"
+                        PlaceholderColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                        Text="{Binding Password}"
+                        TextColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                        VerticalOptions="FillAndExpand"
+                        WidthRequest="200" />
+                </StackLayout>
+                <BoxView
+                    Margin="0"
+                    BackgroundColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                    HeightRequest="0.5"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center" />
+            </StackLayout>
+            <Button
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="0,10"
+                BackgroundColor="{x:Static styles:MainTheme.BaseButtonColor}"
+                Command="{Binding DoLoginCmd}"
+                HeightRequest="49"
+                HorizontalOptions="FillAndExpand"
+                Text="Entrar"
+                TextColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                VerticalOptions="FillAndExpand"
+                WidthRequest="257" />
+            <Label
+                Grid.Row="3"
+                Grid.Column="0"
+                FontSize="12"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                TextColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                VerticalOptions="FillAndExpand">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            FontSize="12"
+                            Text="Esqueceu seus dados de login? " />
+                        <Span
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            Text="Obtenha ajuda para entrar" />
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding ForgotLoginCmd}"
+                        NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
