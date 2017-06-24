@@ -23,6 +23,7 @@ namespace POAFGVApp
             try
             {
                 Container.RegisterTypeForNavigation<LoginPage>();
+				Container.RegisterTypeForNavigation<DashboardPage>();
 				Container.RegisterTypeForNavigation<BlankPage>();
                 Container.RegisterTypeForNavigation<NavigationPage>();
 
