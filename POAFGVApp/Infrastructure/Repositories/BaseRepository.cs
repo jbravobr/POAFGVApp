@@ -19,9 +19,12 @@ namespace POAFGVApp
 
         void SetupDB()
         {
-            App.AppSQLiteConn.CreateTable<Usuario>(SQLite.CreateFlags.None);
-            App.AppSQLiteConn.CreateTable<Endereco>(SQLite.CreateFlags.None);
-        }
+            App.AppSQLiteConn.CreateTable<User>(SQLite.CreateFlags.None);
+            App.AppSQLiteConn.CreateTable<Address>(SQLite.CreateFlags.None);
+			App.AppSQLiteConn.CreateTable<Order>(SQLite.CreateFlags.None);
+			App.AppSQLiteConn.CreateTable<OrderDetail>(SQLite.CreateFlags.None);
+            App.AppSQLiteConn.CreateTable<Product>(SQLite.CreateFlags.None);
+		}
 
         public void Delete(T TEntity)
         {
