@@ -165,6 +165,8 @@
     <AndroidResource Include="Resources\drawable\cadeado.png" />
     <AndroidResource Include="Resources\drawable\list.png" />
     <AndroidResource Include="Resources\drawable\chat.png" />
+    <AndroidResource Include="Resources\drawable\bg2.jpg" />
+    <AndroidResource Include="Resources\drawable\bg1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DependencyServices\" />

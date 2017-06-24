@@ -5,7 +5,9 @@
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     xmlns:styles="clr-namespace:POAFGVApp"
     prism:ViewModelLocator.AutowireViewModel="True"
-    BackgroundColor="Blue"
+    BackgroundColor="Black"
+    Opacity="0.9"
+    BackgroundImage="bg1.jpg"
     x:Class="POAFGVApp.Views.LoginPage">
     <ContentPage.Content>
         <Grid

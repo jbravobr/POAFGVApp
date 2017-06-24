@@ -26,11 +26,13 @@ namespace POAFGVApp.ViewModels
                     switch (menu)
                     {
                         case "1":
-                            await _pageDialogService.DisplayAlertAsync("Clique no menu", "Menu Novo Pedido", "OK");
+                            //await _pageDialogService.DisplayAlertAsync("Clique no menu", "Menu Novo Pedido", "OK");
+                            Xamarin.Forms.MessagingCenter.Send(this, "Clique");
                             break;
 
                         case "2":
                             await _pageDialogService.DisplayAlertAsync("Clique no menu", "Menu Lista de Pedidos", "OK");
+                            Xamarin.Forms.MessagingCenter.Send(this, "Clique2");
                             break;
 
                         default:
