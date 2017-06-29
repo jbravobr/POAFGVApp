@@ -1,13 +1,15 @@
-﻿using System;
+﻿using System.ComponentModel;
 using Prism.Navigation;
 
 namespace POAFGVApp
 {
-    public class BaseViewModel : INavigationAware, IDestructible
+    public class BaseViewModel : INavigationAware, IDestructible, INotifyPropertyChanged
     {
         public BaseViewModel()
         {
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public virtual void Destroy()
         {

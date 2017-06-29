@@ -21,10 +21,13 @@ namespace POAFGVApp.Droid
 
             base.OnCreate(bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            //Init FFImageLoading 
+            CachedImageRenderer.Init();
 
-			//Init FFImageLoading 
-			CachedImageRenderer.Init();
+            //Init Image Circle Plugin
+            ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
+
+            global::Xamarin.Forms.Forms.Init(this, bundle);
 
             LoadApplication(new App());
         }

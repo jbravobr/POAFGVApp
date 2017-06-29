@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
+using POAFGVApp.Views;
 using Prism.Commands;
+using Prism.Navigation;
 using Prism.Services;
 
 namespace POAFGVApp.ViewModels
@@ -9,12 +12,20 @@ namespace POAFGVApp.ViewModels
         public DelegateCommand<string> MenuSelectCmd { get; set; }
 
         IPageDialogService _pageDialogService { get; }
+        INavigationService _navigationSevice { get; }
 
-        public DashboardPageViewModel(IPageDialogService pageDialogService)
+        public DashboardPageViewModel(IPageDialogService pageDialogService, INavigationService navigationService)
         {
             _pageDialogService = pageDialogService;
+            _navigationSevice = navigationService;
 
             MenuSelectCmd = new DelegateCommand<string>(MenuSelect);
+            Xamarin.Forms.MessagingCenter.Subscribe<DashboardPage, string>(this, "NewOrder", async (page, menu) => await NavigateTo(menu));
+        }
+
+        private async Task NavigateTo(string menu)
+        {
+            await _navigationSevice.NavigateAsync(menu);
         }
 
         Action<string> MenuSelect
@@ -26,13 +37,11 @@ namespace POAFGVApp.ViewModels
                     switch (menu)
                     {
                         case "1":
-                            //await _pageDialogService.DisplayAlertAsync("Clique no menu", "Menu Novo Pedido", "OK");
-                            Xamarin.Forms.MessagingCenter.Send(this, "Clique");
+                            Xamarin.Forms.MessagingCenter.Send(this, "ClickMenuNewOrder");
                             break;
 
                         case "2":
-                            await _pageDialogService.DisplayAlertAsync("Clique no menu", "Menu Lista de Pedidos", "OK");
-                            Xamarin.Forms.MessagingCenter.Send(this, "Clique2");
+                            Xamarin.Forms.MessagingCenter.Send(this, "ClickMenuOrderList");
                             break;
 
                         default:

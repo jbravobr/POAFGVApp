@@ -14,7 +14,7 @@ namespace POAFGVApp
 
         protected override void OnInitialized()
         {
-            NavigationService.NavigateAsync("LoginPage");
+            NavigationService.NavigateAsync("NewOrderPage");
         }
 
         protected override void RegisterTypes()
@@ -26,15 +26,22 @@ namespace POAFGVApp
                 Container.RegisterTypeForNavigation<DashboardPage>();
                 Container.RegisterTypeForNavigation<BlankPage>();
                 Container.RegisterTypeForNavigation<NavigationPage>();
+                Container.RegisterTypeForNavigation<NewOrderPage>();
 
                 // Registrando IoC
                 Container.RegisterType(typeof(IBaseRepository<>),
-                                       typeof(BaseRepository<>),
-                                       new ContainerControlledLifetimeManager());
+                                           typeof(BaseRepository<>),
+                                           new ContainerControlledLifetimeManager());
 
                 Container.RegisterType(typeof(IBaseApplicationService<>),
                                       typeof(BaseApplicationService<>),
                                       new ContainerControlledLifetimeManager());
+
+                Container.RegisterType(typeof(IUserApplicationService),
+                                      typeof(UserApplicationServices),
+                                      new ContainerControlledLifetimeManager());
+
+                Container.RegisterInstance(Acr.Settings.Settings.Current);
             }
             catch (Exception ex)
             {

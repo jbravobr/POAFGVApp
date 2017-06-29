@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace POAFGVApp
 {
-    public interface IUserApplicationService
+    public interface IUserApplicationService : IBaseApplicationService<User>
     {
         Task<User> DoRemoteLogin(string user, string password);
         Task<User> GetRemoteUserById(int id);

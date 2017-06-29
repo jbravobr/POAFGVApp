@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="POAFGVApp.Views.NewOrderPage"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    xmlns:local="clr-namespace:POAFGVApp">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ChatDataTemplateSelector
+                x:Key="MessageTemplateSelector">
+            </local:ChatDataTemplateSelector>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView
+                x:Name="MessagesListView"
+                ItemTemplate="{StaticResource MessageTemplateSelector}"
+                ItemsSource="{Binding Messages}"
+                HasUnevenRows="True"
+                SeparatorVisibility="None" />
+            <StackLayout
+                VerticalOptions="End"
+                BackgroundColor="Silver"
+                Orientation="Horizontal"
+                Spacing="4">
+                <!--- ENTRY  -->
+                <Entry
+                    Style="{x:Static local:MainTheme.ChatMessageEntryStyle}"
+                    Placeholder="Digite algo aqui..."
+                    HorizontalOptions="FillAndExpand" />
+                <!--- SEND BUTTON  -->
+                <ffimageloading:CachedImage
+                    HorizontalOptions="End"
+                    HeightRequest="20"
+                    WidthRequest="20"
+                    Source="send.png">
+                </ffimageloading:CachedImage>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

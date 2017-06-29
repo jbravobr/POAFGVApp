@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using POAFGVApp.ViewModels;
 using Xamarin.Forms;
@@ -10,23 +9,33 @@ namespace POAFGVApp.Views
     {
         protected override void OnAppearing()
         {
-            Xamarin.Forms.MessagingCenter.Subscribe<DashboardPageViewModel>(this, "Clique", async (obj) => await Anim());
-			Xamarin.Forms.MessagingCenter.Subscribe<DashboardPageViewModel>(this, "Clique2", async (obj) => await Anim2());
-            }
+            Xamarin.Forms.MessagingCenter.Subscribe<DashboardPageViewModel>(this, "ClickMenuNewOrder", async (obj) => await AnimMenuNewOrder());
+            Xamarin.Forms.MessagingCenter.Subscribe<DashboardPageViewModel>(this, "ClickMenuOrderList", async (obj) => await AnimMenuOrderList());
+        }
 
-        private async Task Anim()
+        private async Task AnimMenuNewOrder()
         {
             ViewExtensions.CancelAnimations(this.btnNewNotice);
             await this.btnNewNotice.ScaleTo(3, 250, Easing.CubicIn);
             await this.btnNewNotice.ScaleTo(1, 250, Easing.CubicOut);
+            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+             {
+                 Xamarin.Forms.MessagingCenter.Send(this, "NewOrder");
+                 return true;
+             });
         }
 
-		private async Task Anim2()
-		{
-			ViewExtensions.CancelAnimations(this.btnNewNotice);
-			await this.btnListNotices.ScaleTo(3, 250, Easing.CubicIn);
-			await this.btnListNotices.ScaleTo(1, 250, Easing.BounceOut);
-		}
+        private async Task AnimMenuOrderList()
+        {
+            ViewExtensions.CancelAnimations(this.btnNewNotice);
+            await this.btnListNotices.ScaleTo(3, 250, Easing.CubicIn);
+            await this.btnListNotices.ScaleTo(1, 250, Easing.BounceOut);
+            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+             {
+                 Xamarin.Forms.MessagingCenter.Send(this, "OrderList");
+                 return true;
+             });
+        }
 
         public DashboardPage()
         {

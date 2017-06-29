@@ -2,6 +2,8 @@
 using Prism.Navigation;
 using Prism.Commands;
 using Prism.Services;
+using Acr.Settings;
+using System.Threading.Tasks;
 
 namespace POAFGVApp.ViewModels
 {
@@ -13,15 +15,18 @@ namespace POAFGVApp.ViewModels
 
         INavigationService _navigationService { get; }
         IPageDialogService _pageDialogService { get; }
-        IBaseApplicationService<User> _userService { get; }
+        IUserApplicationService _userService { get; }
+        ISettings _settings { get; }
 
         public LoginPageViewModel(INavigationService navigationService,
                                   IPageDialogService pageDialogService,
-                                  IBaseApplicationService<User> userService)
+                                  IUserApplicationService userService,
+                                  ISettings settings)
         {
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
             _userService = userService;
+            _settings = settings;
 
             DoLoginCmd = new DelegateCommand(DoLogin);
         }
@@ -33,15 +38,32 @@ namespace POAFGVApp.ViewModels
                                             {
                                                 Login = null;
                                                 Password = null;
-                                                await _pageDialogService.DisplayAlertAsync("Erro", "Usurio/Senha inválidos", "OK");
+                                                await _pageDialogService.DisplayAlertAsync("Erro", "Usuário/Senha inválidos", "OK");
+                                                return;
                                             }
 
-                                            ////TODO: consultar na fonte os dados
+                                            if (await GetUser())
+                                                await _navigationService.NavigateAsync(new Uri("myapp:///NavigationPage/DashboardPage", UriKind.Absolute));
+                                            else
+                                            {
+                                                await _pageDialogService.DisplayAlertAsync("Erro", "Usuário/Senha inválidos", "OK");
+                                                return;
 
-                                            //if (1 == 1)
-                                            //await _pageDialogService.DisplayAlertAsync("Navegação", "Acessando página principal", "OK");
-
-                                            await _navigationService.NavigateAsync(new Uri("myapp:///NavigationPage/DashboardPage", UriKind.Absolute));
+                                            }
                                         });
+
+        async Task<bool> GetUser()
+        {
+            var user = await _userService.DoRemoteLogin(Login, Password);
+            if (user != null)
+            {
+                _settings.Set<bool>("USER_LOGGED", true);
+                await _userService.InsertAsync(user);
+
+                return await Task.FromResult(true);
+            }
+
+            return await Task.FromResult(false);
+        }
     }
 }
