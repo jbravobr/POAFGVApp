@@ -16,9 +16,5 @@ namespace POAFGVApp
 
         Task<List<T>> GetAllAsync();
         Task<List<T>> GetAllWithChildrenByPredicateAsync(Expression<Func<T, bool>> predicate);
-
-        Task<T> GetRemoteData();
-
-        Task<List<T>> GetAllRemoteData();
     }
 }

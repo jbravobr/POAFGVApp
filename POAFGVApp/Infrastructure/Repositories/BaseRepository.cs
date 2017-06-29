@@ -26,12 +26,13 @@ namespace POAFGVApp
                 App.AppSQLiteConn.CreateTable<Order>(SQLite.CreateFlags.None);
                 App.AppSQLiteConn.CreateTable<OrderDetail>(SQLite.CreateFlags.None);
                 App.AppSQLiteConn.CreateTable<Product>(SQLite.CreateFlags.None);
+                App.AppSQLiteConn.CreateTable<Message>(SQLite.CreateFlags.None);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-		}
+        }
 
         public void Delete(T TEntity)
         {

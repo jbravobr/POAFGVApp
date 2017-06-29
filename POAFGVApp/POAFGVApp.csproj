@@ -35,8 +35,6 @@
     <Compile Include="Infrastructure\Repositories\IBaseRepository.cs" />
     <Compile Include="Infrastructure\Repositories\BaseRepository.cs" />
     <Compile Include="Models\BaseEntity.cs" />
-    <Compile Include="ApplicationServices\IBaseApplicationService.cs" />
-    <Compile Include="ApplicationServices\BaseApplicationService.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
@@ -62,6 +60,11 @@
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\DashboardPageViewModel.cs" />
+    <Compile Include="ApplicationServices\Bases\BaseApplicationService.cs" />
+    <Compile Include="ApplicationServices\Bases\IBaseApplicationService.cs" />
+    <Compile Include="ApplicationServices\UserApplicationServices.cs" />
+    <Compile Include="ApplicationServices\IUserApplicationService.cs" />
+    <Compile Include="Models\Message.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -133,6 +136,7 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Theme\" />
     <Folder Include="Views\Controls\" />
+    <Folder Include="ApplicationServices\Bases\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\LoginPage.xaml">

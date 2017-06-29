@@ -23,8 +23,8 @@ namespace POAFGVApp
             try
             {
                 Container.RegisterTypeForNavigation<LoginPage>();
-				Container.RegisterTypeForNavigation<DashboardPage>();
-				Container.RegisterTypeForNavigation<BlankPage>();
+                Container.RegisterTypeForNavigation<DashboardPage>();
+                Container.RegisterTypeForNavigation<BlankPage>();
                 Container.RegisterTypeForNavigation<NavigationPage>();
 
                 // Registrando IoC
@@ -35,7 +35,9 @@ namespace POAFGVApp
                 Container.RegisterType(typeof(IBaseApplicationService<>),
                                       typeof(BaseApplicationService<>),
                                       new ContainerControlledLifetimeManager());
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

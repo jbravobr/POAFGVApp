@@ -11,7 +11,7 @@ namespace POAFGVApp
     {
         IBaseRepository<T> _repository { get; }
 
-        public BaseApplicationService(IBaseRepository<T> repository)
+        protected BaseApplicationService(IBaseRepository<T> repository)
         {
             _repository = repository;
         }
@@ -31,19 +31,9 @@ namespace POAFGVApp
             return await Task.Run(() => _repository.GetAllWithChildrenByPredicate(predicate));
         }
 
-        public async Task<List<T>> GetAllRemoteData()
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<T> GetByIdAsync(int pkId)
         {
             return await Task.Run(() => _repository.GetById(pkId));
-        }
-
-        public Task<T> GetRemoteData()
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<T> GetWithChildrenByPredicateAsync(Expression<Func<T, bool>> predicate)
