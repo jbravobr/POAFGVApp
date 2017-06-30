@@ -76,6 +76,18 @@
     <Compile Include="Views\CustomCells\OutgoingViewCell.xaml.cs">
       <DependentUpon>OutgoingViewCell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ListOrdersPage.xaml.cs">
+      <DependentUpon>ListOrdersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Templates\RecentOrderItemTemplate.xaml.cs">
+      <DependentUpon>RecentOrderItemTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ListOrdersPageViewModel.cs" />
+    <Compile Include="Models\Helpers\OrderHelper.cs" />
+    <Compile Include="Converters\ItemTappedEventArgsConverter.cs" />
+    <Compile Include="Views\OrderDetailPage.xaml.cs">
+      <DependentUpon>OrderDetailPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.ServiceLocation">
@@ -164,6 +176,8 @@
     <Folder Include="Views\Templates\" />
     <Folder Include="DataTemplates\" />
     <Folder Include="Views\CustomCells\" />
+    <Folder Include="Models\Helpers\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\LoginPage.xaml">
@@ -185,6 +199,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CustomCells\OutgoingViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ListOrdersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Templates\RecentOrderItemTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrderDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

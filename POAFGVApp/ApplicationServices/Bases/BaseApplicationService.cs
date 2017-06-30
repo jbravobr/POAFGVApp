@@ -11,7 +11,7 @@ namespace POAFGVApp
     {
         IBaseRepository<T> _repository { get; }
 
-        protected BaseApplicationService(IBaseRepository<T> repository)
+        public BaseApplicationService(IBaseRepository<T> repository)
         {
             _repository = repository;
         }

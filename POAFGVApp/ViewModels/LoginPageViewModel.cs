@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace POAFGVApp.ViewModels
 {
-    public class LoginPageViewModel
+    public class LoginPageViewModel : BaseViewModel
     {
         public string Login { get; set; }
         public string Password { get; set; }

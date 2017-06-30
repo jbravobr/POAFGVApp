@@ -11,7 +11,11 @@ using FFImageLoading.Forms.Droid;
 
 namespace POAFGVApp.Droid
 {
-    [Activity(Label = "POAFGVApp.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "PizzaBot",
+              Icon = "@drawable/ic_launcher", 
+              Theme = "@style/MyTheme", 
+              MainLauncher = true, 
+              ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)

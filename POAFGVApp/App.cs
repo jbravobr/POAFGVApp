@@ -14,39 +14,41 @@ namespace POAFGVApp
 
         protected override void OnInitialized()
         {
-            NavigationService.NavigateAsync("NewOrderPage");
-        }
-
-        protected override void RegisterTypes()
-        {
-            // Registrando Views para navegação
             try
             {
-                Container.RegisterTypeForNavigation<LoginPage>();
-                Container.RegisterTypeForNavigation<DashboardPage>();
-                Container.RegisterTypeForNavigation<BlankPage>();
-                Container.RegisterTypeForNavigation<NavigationPage>();
-                Container.RegisterTypeForNavigation<NewOrderPage>();
-
-                // Registrando IoC
-                Container.RegisterType(typeof(IBaseRepository<>),
-                                           typeof(BaseRepository<>),
-                                           new ContainerControlledLifetimeManager());
-
-                Container.RegisterType(typeof(IBaseApplicationService<>),
-                                      typeof(BaseApplicationService<>),
-                                      new ContainerControlledLifetimeManager());
-
-                Container.RegisterType(typeof(IUserApplicationService),
-                                      typeof(UserApplicationServices),
-                                      new ContainerControlledLifetimeManager());
-
-                Container.RegisterInstance(Acr.Settings.Settings.Current);
+                NavigationService.NavigateAsync("OrderDetailPage");
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        protected override void RegisterTypes()
+        {
+            // Registrando Views para navegação
+            Container.RegisterTypeForNavigation<LoginPage>();
+            Container.RegisterTypeForNavigation<DashboardPage>();
+            Container.RegisterTypeForNavigation<BlankPage>();
+            Container.RegisterTypeForNavigation<NavigationPage>();
+            Container.RegisterTypeForNavigation<NewOrderPage>();
+            Container.RegisterTypeForNavigation<ListOrdersPage>();
+            Container.RegisterTypeForNavigation<OrderDetailPage>();
+
+            // Registrando IoC
+            Container.RegisterType(typeof(IBaseRepository<>),
+                                           typeof(BaseRepository<>),
+                                           new ContainerControlledLifetimeManager());
+
+            Container.RegisterType(typeof(IBaseApplicationService<>),
+                                  typeof(BaseApplicationService<>),
+                                  new ContainerControlledLifetimeManager());
+
+            Container.RegisterType(typeof(IUserApplicationService),
+                                  typeof(UserApplicationServices),
+                                  new ContainerControlledLifetimeManager());
+
+            Container.RegisterInstance(Acr.Settings.Settings.Current);
         }
     }
 }

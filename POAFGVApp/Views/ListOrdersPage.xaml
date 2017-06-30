@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:local="clr-namespace:POAFGVApp"
+    xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    xmlns:templates="clr-namespace:POAFGVApp.Views"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:Class="POAFGVApp.Views.ListOrdersPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ItemTappedEventArgsConverter
+                x:Key="itemTappedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ListView
+            x:Name="lstOrders"
+            ItemsSource="{Binding Orders}"
+            SeparatorVisibility="Default"
+            SeparatorColor="{x:Static local:MainTheme.ListViewSeparatorColor}"
+            HasUnevenRows="false"
+            HeightRequest="66"
+            CachingStrategy="RecycleElement">
+            <ListView.Behaviors>
+                <b:EventToCommandBehavior
+                    EventName="ItemTapped"
+                    Command="{Binding SelectItemCmd}"
+                    EventArgsConverter="{StaticResource itemTappedEventArgsConverter}" />
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <templates:RecentOrderItemTemplate />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace POAFGVApp
 {
-    public interface IBaseApplicationService<T> where T : BaseEntity
+    public interface IBaseApplicationService<T>
     {
         Task<int> InsertAsync(T TEntity);
         Task DeleteAsync(T TEntity);

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:local="clr-namespace:POAFGVApp"
+    xmlns:plugin="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{x:Static local:MainTheme.BasePageColor}"
+    x:Class="POAFGVApp.Views.OrderDetailPage">
+    <ContentPage.Content>
+        <Grid
+            Padding="20,20"
+            ColumnSpacing="13"
+            HorizontalOptions="FillAndExpand"
+            BackgroundColor="{x:Static local:MainTheme.BasePageColor}"
+            VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="100" />
+                <ColumnDefinition
+                    Width="*" />
+                <ColumnDefinition
+                    Width="Auto" />
+                <ColumnDefinition
+                    Width="20" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="Auto">
+                </RowDefinition>
+                <RowDefinition
+                    Height="Auto">
+                </RowDefinition>
+                <RowDefinition
+                    Height="Auto">
+                </RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout
+                Grid.Row="0"
+                Grid.Column="0"
+                Orientation="Horizontal"
+                BackgroundColor="White"
+                Spacing="5">
+                <plugin:CircleImage
+                    Source="pizzalist.png"
+                    BorderColor="{x:Static local:MainTheme.AccentColor}"
+                    BorderThickness="2"
+                    Aspect="AspectFill"
+                    WidthRequest="40"
+                    HeightRequest="40"
+                    VerticalOptions="Center" />
+                <Label
+                    
+                    FontSize="10">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span>PizzaBot</Span>
+                            <Span>Pedido #1</Span>
+                            <Span>Concluído</Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

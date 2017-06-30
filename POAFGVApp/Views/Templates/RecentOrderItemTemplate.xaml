@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:POAFGVApp"
+    xmlns:plugin="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    x:Class="POAFGVApp.Views.RecentOrderItemTemplate">
+    <ContentView.Content>
+        <!-- MAIN WRAPPER-->
+        <StackLayout
+            Spacing="0"
+            Padding="0"
+            HorizontalOptions="Fill"
+            BackgroundColor="{x:Static local:MainTheme.BasePageColor}">
+            <!-- MAIN GRID -->
+            <Grid
+                Padding="20,0"
+                ColumnSpacing="13"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="45" />
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="20" />
+                </Grid.ColumnDefinitions>
+                <plugin:CircleImage
+                    Grid.Column="0"
+                    Source="pizzalist.png"
+                    BorderColor="{x:Static local:MainTheme.AccentColor}"
+                    BorderThickness="2"
+                    Aspect="AspectFill"
+                    WidthRequest="40"
+                    HeightRequest="40"
+                    VerticalOptions="Center" />
+                <!-- NOTIFICATION -->
+                <StackLayout
+                    Grid.Column="1"
+                    Spacing="0"
+                    Orientation="Vertical"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start">
+                    <Label
+                        FontAttributes="Bold"
+                        Text="{Binding FormattedProducts}"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        FontSize="12" />
+                    <StackLayout
+                        Orientation="Horizontal"
+                        Spacing="6">
+                        <Label
+                            FontSize="9"
+                            FontAttributes="Italic"
+                            Text="{Binding FormattedPayment}"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center"
+                            LineBreakMode="TailTruncation" />
+                    </StackLayout>
+                </StackLayout>
+                <!-- TIME DELIVER -->
+                <StackLayout
+                    Grid.Column="2"
+                    VerticalOptions="Center"
+                    Orientation="Horizontal">
+                    <Label
+                        FontSize="Micro"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontAttributes="Italic"
+                        Text="{Binding OrderDateTime, StringFormat='{0:dd/MM/yyyy}'}"
+                        TextColor="Gray" />
+                    <ffimageloading:CachedImage
+                        HorizontalOptions="End"
+                        HeightRequest="10"
+                        WidthRequest="10"
+                        Source="clock.png" />
+                </StackLayout>
+                <!--VIEW DETAILS ICON -->
+                <ffimageloading:CachedImage
+                    Grid.Column="3"
+                    HorizontalOptions="EndAndExpand"
+                    HeightRequest="25"
+                    WidthRequest="25"
+                    Source="more.png" />
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
