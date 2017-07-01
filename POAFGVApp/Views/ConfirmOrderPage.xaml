@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:POAFGVApp"
     xmlns:plugin="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
     prism:ViewModelLocator.AutowireViewModel="True"
-    x:Class="POAFGVApp.Views.OrderDetailPage">
+    x:Class="POAFGVApp.Views.ConfirmOrderPage">
     <ContentPage.Content>
         <ScrollView
             Orientation="Horizontal">
@@ -20,6 +20,8 @@
                         Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="Auto" />
                     <RowDefinition
                         Height="Auto" />
                     <RowDefinition
@@ -212,6 +214,13 @@
                     HeightRequest="20"
                     WidthRequest="20"
                     Source="more.png" />
+                <Button
+                    Grid.Row="5"
+                    Text="CONFIRMAR"
+                    TextColor="Black"
+                    BackgroundColor="Red"
+                    BorderRadius="4"
+                    BorderColor="Red" />
             </Grid>
         </ScrollView>
     </ContentPage.Content>

@@ -88,6 +88,12 @@
     <Compile Include="Views\OrderDetailPage.xaml.cs">
       <DependentUpon>OrderDetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CustomCells\PaymentDetailCell.xaml.cs">
+      <DependentUpon>PaymentDetailCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConfirmOrderPage.xaml.cs">
+      <DependentUpon>ConfirmOrderPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.ServiceLocation">
@@ -208,6 +214,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\OrderDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomCells\PaymentDetailCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ConfirmOrderPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
