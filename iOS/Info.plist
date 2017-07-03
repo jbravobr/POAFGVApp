@@ -1,11 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDisplayName</key>
-	<string>POAFGVApp</string>
-	<key>CFBundleName</key>
-	<string>POAFGVApp</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.decisionapp.poafgvapp</string>
 	<key>CFBundleShortVersionString</key>
@@ -42,5 +38,7 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleName</key>
+	<string>PizzaBot</string>
 </dict>
 </plist>
