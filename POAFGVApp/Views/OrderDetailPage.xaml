@@ -5,6 +5,8 @@
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     xmlns:templates="clr-namespace:POAFGVApp.Views"
     xmlns:local="clr-namespace:POAFGVApp"
+    Title="Pedido - Detalhes"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:plugin="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
     prism:ViewModelLocator.AutowireViewModel="True"
     x:Class="POAFGVApp.Views.OrderDetailPage">
@@ -50,12 +52,12 @@
                     <StackLayout
                         Spacing="0">
                         <Label
-                            Text="Botero Em Pé Tijuca"
+                            Text="Pizzaria Pastaquepariu"
                             FontAttributes="Bold"
                             FontSize="Medium"
                             TextColor="Black" />
                         <Label
-                            Text="Pedido #1"
+                            Text="{Binding OrderID}"
                             FontAttributes="Italic"
                             FontSize="10"
                             TextColor="Black" />
@@ -88,12 +90,15 @@
                     <ListView
                         HasUnevenRows="false"
                         VerticalOptions="FillAndExpand"
+                        ItemsSource="{Binding Items}"
                         SeparatorColor="Transparent"
                         BackgroundColor="#FCFCFC"
                         SeparatorVisibility="Default">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <templates:PaymentDetailCell />
+                                <ViewCell>
+                                    <templates:PaymentDetailTemplate />
+                                </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -110,7 +115,7 @@
                             TextColor="Gray"
                             Margin="10,15" />
                         <Label
-                            Text="R$ 48,00"
+                            Text="{Binding Total}"
                             HorizontalOptions="EndAndExpand"
                             HorizontalTextAlignment="Start"
                             TextColor="Gray"
@@ -146,7 +151,7 @@
                             TextColor="Gray"
                             Margin="10,15" />
                         <Label
-                            Text="30/06/2017 19:47"
+                            Text="{Binding OrderDatetime}"
                             HorizontalOptions="EndAndExpand"
                             HorizontalTextAlignment="Start"
                             TextColor="Gray"
@@ -162,7 +167,7 @@
                             TextColor="Gray"
                             Margin="10,15" />
                         <Label
-                            Text="Débito"
+                            Text="{Binding Payment}"
                             HorizontalOptions="EndAndExpand"
                             HorizontalTextAlignment="Start"
                             TextColor="Gray"
@@ -193,25 +198,19 @@
                             Grid.Row="1"
                             TextColor="Gray"
                             FontSize="10"
-                            Text="R Maia De Lacerda, 186" />
+                            Text="{Binding Address}" />
                         <Label
                             Grid.Row="2"
                             FontSize="10"
                             TextColor="Gray"
-                            Text="Apartamento 202" />
+                            Text="{Binding Number}" />
                         <Label
                             Grid.Row="3"
                             FontSize="10"
                             TextColor="Gray"
-                            Text="Estácio - Rio de Janeiro (RJ)" />
+                            Text="{Binding Burgh}" />
                     </Grid>
                 </StackLayout>
-                <Image
-                    Grid.Row="0"
-                    Aspect="AspectFit"
-                    HeightRequest="20"
-                    WidthRequest="20"
-                    Source="more.png" />
             </Grid>
         </ScrollView>
     </ContentPage.Content>

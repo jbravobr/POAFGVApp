@@ -6,6 +6,7 @@
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     prism:ViewModelLocator.AutowireViewModel="True"
+    Title="Pedido - Novo"
     xmlns:local="clr-namespace:POAFGVApp">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -24,12 +25,13 @@
                 SeparatorVisibility="None" />
             <StackLayout
                 VerticalOptions="End"
-                BackgroundColor="Silver"
+                BackgroundColor="#F2F2F2"
                 Orientation="Horizontal"
                 Spacing="4">
                 <!--- ENTRY  -->
                 <Entry
                     Style="{x:Static local:MainTheme.ChatMessageEntryStyle}"
+                    Text="{Bindin Text}"
                     Placeholder="Digite algo aqui..."
                     HorizontalOptions="FillAndExpand" />
                 <!--- SEND BUTTON  -->
@@ -38,6 +40,10 @@
                     HeightRequest="20"
                     WidthRequest="20"
                     Source="send.png">
+                    <ffimageloading:CachedImage.GestureRecognizers>
+                         <TapGestureRecognizer
+                            Command="{Binding SendMessageCmd}" />
+                    </ffimageloading:CachedImage.GestureRecognizers>
                 </ffimageloading:CachedImage>
             </StackLayout>
         </StackLayout>

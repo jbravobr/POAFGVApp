@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Pedido - Finalizado"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:styles="clr-namespace:POAFGVApp"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:Class="POAFGVApp.Views.OrderFinishedPage">
+    <ContentPage.Content>
+        <ScrollView
+            Orientation="Vertical">
+            <StackLayout
+                Spacing="0"
+                HorizontalOptions="FillAndExpand">
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start"
+                    HeightRequest="270"
+                    Spacing="3"
+                    BackgroundColor="#62AC5B">
+                    <Label
+                        Text="Seu pedido foi confirmado!"
+                        FontAttributes="Bold"
+                        FontSize="22"
+                        Margin="20,25"
+                        TextColor="White" />
+                    <ffimageloading:CachedImage
+                        Aspect="AspectFit"
+                        HeightRequest="150"
+                        WidthRequest="150"
+                        Margin="0,15"
+                        Source="orderdone.png" />
+                </StackLayout>
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="250"
+                    BackgroundColor="#FCFCFC">
+                    <Grid
+                        ColumnSpacing="0"
+                        RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="Auto" />
+                            <ColumnDefinition
+                                Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout
+                            Grid.Column="0"
+                            HeightRequest="50"
+                            Spacing="0">
+                            <Label
+                                Text="Pizzaria Pastaquepariu"
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                Margin="20,25"
+                                TextColor="Black" />
+                            <Label
+                                Margin="20,-20"
+                                TextColor="#D2D2D2">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span
+                                            Text="Pedido n˚1. Enviado às "
+                                            FontSize="15" />
+                                        <Span
+                                            Text="20:37"
+                                            FontSize="15"
+                                            FontAttributes="Bold" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <StackLayout
+                                Orientation="Horizontal"
+                                Margin="19,60">
+                                <Label
+                                    Text="1 PIZZA CALABRESA, 1 PIZZA PORTUGUESA"
+                                    FontSize="12"
+                                    TextColor="#666666" />
+                                <Label
+                                    Text="R$30,00"
+                                    FontSize="15"
+                                    Margin="40,-2"
+                                    HorizontalOptions="End"
+                                    FontAttributes="Bold"
+                                    TextColor="#666666" />
+                            </StackLayout>
+                        </StackLayout>
+                        <ffimageloading:CachedImage
+                            Grid.Column="0"
+                            HeightRequest="66"
+                            WidthRequest="66"
+                            Margin="290,15"
+                            Source="pizzalist.png" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout
+                    Padding="0"
+                    Spacing="0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    BackgroundColor="#FCFCFC">
+                    <BoxView
+                        HeightRequest="4"
+                        Color="#D2D2D2" />
+                    <StackLayout
+                        Orientation="Horizontal"
+                        Spacing="0"
+                        HorizontalOptions="FillAndExpand">
+                        <ffimageloading:CachedImage
+                            Source="check.png"
+                            Aspect="AspectFit"
+                            HeightRequest="30"
+                            Margin="20"
+                            VerticalOptions="Start" />
+                        <Label
+                            Text="Ver detalhes do pedido"
+                            TextColor="Black"
+                            FontSize="13"
+                            Margin="0,30" />
+                    </StackLayout>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding SeeOrderDetailsCmd}" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

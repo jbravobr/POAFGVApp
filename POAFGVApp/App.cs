@@ -16,7 +16,7 @@ namespace POAFGVApp
         {
             try
             {
-                NavigationService.NavigateAsync("OrderDetailPage");
+                NavigationService.NavigateAsync("ListOrdersPage");
             }
             catch (Exception ex)
             {

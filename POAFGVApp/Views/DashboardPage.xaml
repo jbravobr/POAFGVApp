@@ -6,7 +6,7 @@
     prism:ViewModelLocator.AutowireViewModel="True"
     xmlns:styles="clr-namespace:POAFGVApp"
     xmlns:controls="clr-namespace:POAFGVApp.Views"
-    Title="INÍCIO"
+    Title="Início"
     x:Class="POAFGVApp.Views.DashboardPage">
     <Grid
         RowSpacing="0"

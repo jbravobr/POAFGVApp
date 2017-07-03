@@ -6,6 +6,7 @@
     xmlns:styles="clr-namespace:POAFGVApp"
     xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     prism:ViewModelLocator.AutowireViewModel="True"
+    Title="Login"
     BackgroundColor="Black"
     Opacity="0.9"
     BackgroundImage="bg1.jpg"
@@ -60,7 +61,8 @@
                         HorizontalOptions="Start"
                         Source="usuario.png"
                         VerticalOptions="Center" />
-                    <Entry
+                    <styles:LineEntry
+                        HasBorder="false"
                         HorizontalOptions="StartAndExpand"
                         Placeholder="Usuário"
                         PlaceholderColor="{x:Static styles:MainTheme.OverImageTextColor}"
@@ -84,7 +86,8 @@
                         HorizontalOptions="Start"
                         Source="cadeado.png"
                         VerticalOptions="Center" />
-                    <Entry
+                    <styles:LineEntry
+                        HasBorder="false"
                         HorizontalOptions="StartAndExpand"
                         IsPassword="True"
                         Placeholder="*****"

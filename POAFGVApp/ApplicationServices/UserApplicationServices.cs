@@ -51,9 +51,9 @@ namespace POAFGVApp
             throw new NotImplementedException();
         }
 
-        public Task<List<User>> GetAllAsync()
+        public async Task<List<User>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await Task.Run(() => _userRepository.GetAll());
         }
 
         public Task<List<User>> GetAllWithChildrenByPredicateAsync(Expression<Func<User, bool>> predicate)

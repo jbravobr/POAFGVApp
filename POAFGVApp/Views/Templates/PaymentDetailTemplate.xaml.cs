@@ -4,9 +4,9 @@ using Xamarin.Forms;
 
 namespace POAFGVApp.Views
 {
-    public partial class PaymentDetailCell : ContentView
+    public partial class PaymentDetailTemplate : ContentView
     {
-        public PaymentDetailCell()
+        public PaymentDetailTemplate()
         {
             InitializeComponent();
         }

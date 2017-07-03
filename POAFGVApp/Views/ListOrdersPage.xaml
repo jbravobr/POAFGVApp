@@ -5,6 +5,7 @@
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     xmlns:local="clr-namespace:POAFGVApp"
     xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    Title="Pedidos"
     xmlns:templates="clr-namespace:POAFGVApp.Views"
     prism:ViewModelLocator.AutowireViewModel="True"
     x:Class="POAFGVApp.Views.ListOrdersPage">

@@ -2,9 +2,9 @@
 
 namespace POAFGVApp.Views
 {
-    public partial class ConfirmOrderPage : ContentPage
+    public partial class OrderFinishedPage : ContentPage
     {
-        public ConfirmOrderPage()
+        public OrderFinishedPage()
         {
             InitializeComponent();
         }
