@@ -97,7 +97,7 @@
                         SeparatorVisibility="Default">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <templates:PaymentDetailCell />
+                                <templates:PaymentDetailTemplate />
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -114,7 +114,7 @@
                             TextColor="Gray"
                             Margin="10,15" />
                         <Label
-                            Text="{Bindint Total}"
+                            Text="{Binding Total}"
                             HorizontalOptions="EndAndExpand"
                             HorizontalTextAlignment="Start"
                             TextColor="Gray"

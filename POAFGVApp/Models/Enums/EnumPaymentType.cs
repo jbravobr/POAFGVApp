@@ -6,8 +6,13 @@ namespace POAFGVApp
         [EnumDescription("Cartão de Crédito")]
         CreditCard = 0,
         [EnumDescription("Cartão de Débito")]
-        Debit = 1,
+        DebitCard = 1,
         [EnumDescription("Dinheiro")]
-        Cash = 2
+        Cash = 2,
+
+        [EnumDescription("Cartao de Credito")]
+        Credit = 3,
+        [EnumDescription("Carta de Debito")]
+        Debit = 4
     }
 }

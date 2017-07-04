@@ -4,6 +4,7 @@ using Prism.Unity;
 using System;
 using POAFGVApp.Views;
 using Microsoft.Practices.Unity;
+using System.Net.Http;
 
 namespace POAFGVApp
 {
@@ -11,12 +12,14 @@ namespace POAFGVApp
     public class App : PrismApplication
     {
         public static SQLite.SQLiteConnection AppSQLiteConn { get; set; }
+        public static HttpClient AppHttpClient { get; set; }
+        public static bool IsBotConnectorConfigured { get; set; } = false;
 
         protected override void OnInitialized()
         {
             try
             {
-                NavigationService.NavigateAsync("ListOrdersPage");
+                NavigationService.NavigateAsync("NewOrderPage");
             }
             catch (Exception ex)
             {
@@ -34,6 +37,8 @@ namespace POAFGVApp
             Container.RegisterTypeForNavigation<NewOrderPage>();
             Container.RegisterTypeForNavigation<ListOrdersPage>();
             Container.RegisterTypeForNavigation<OrderDetailPage>();
+            Container.RegisterTypeForNavigation<ConfirmOrderPage>();
+            Container.RegisterTypeForNavigation<OrderFinishedPage>();
 
             // Registrando IoC
             Container.RegisterType(typeof(IBaseRepository<>),
@@ -49,6 +54,8 @@ namespace POAFGVApp
                                   new ContainerControlledLifetimeManager());
 
             Container.RegisterInstance(Acr.Settings.Settings.Current);
+
+            Container.RegisterType(typeof(IBotConnector), typeof(BotConnector));
         }
     }
 }

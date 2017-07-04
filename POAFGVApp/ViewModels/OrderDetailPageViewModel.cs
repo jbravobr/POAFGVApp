@@ -50,7 +50,7 @@ namespace POAFGVApp.ViewModels
                });
             Total = $"R${SubTotal.ToString()}";
             OrderDatetime = $"{PreOrder.OrderDateTime.ToString("dd/MM/yyyy")} {PreOrder.OrderDateTime.Hour}:{PreOrder.OrderDateTime.Minute}:{PreOrder.OrderDateTime.Second}";
-            Payment = PreOrder.PaymentType.GetDescription();
+            Payment = PreOrder.PaymentType;
 
             var userAddress = await _userService.GetAllAsync();
             if (userAddress != null && userAddress.Any())

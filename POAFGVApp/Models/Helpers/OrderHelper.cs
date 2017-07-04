@@ -29,7 +29,7 @@ namespace POAFGVApp
                     }
                 },
                 OrderDateTime = DateTime.Now,
-                PaymentType = EnumPaymentType.Cash
+                PaymentType = "Dinheiro"
             },
             new Order()
             {
@@ -53,7 +53,7 @@ namespace POAFGVApp
                     }
                 },
                 OrderDateTime = DateTime.Now,
-                PaymentType = EnumPaymentType.CreditCard
+                PaymentType = "Cartão de Crédito"
             },
             new Order()
             {
@@ -77,7 +77,7 @@ namespace POAFGVApp
                     }
                 },
                 OrderDateTime = DateTime.Now,
-                PaymentType = EnumPaymentType.Debit
+                PaymentType = "Cartão de Débito"
             },
             new Order()
             {
@@ -108,7 +108,7 @@ namespace POAFGVApp
                     }
                 },
                 OrderDateTime = DateTime.Now,
-                PaymentType = EnumPaymentType.Cash
+                PaymentType = "Dinheiro"
             }
         };
     }

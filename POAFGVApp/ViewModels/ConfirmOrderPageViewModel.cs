@@ -81,7 +81,7 @@ namespace POAFGVApp.ViewModels
 			   });
 			Total = $"R${SubTotal.ToString()}";
 			OrderDatetime = PreOrder.OrderDateTime;
-			Payment = PreOrder.PaymentType.GetDescription();
+			Payment = PreOrder.PaymentType;
 
 			var userAddress = await _userService.GetAllAsync();
 			if (userAddress != null && userAddress.Any())

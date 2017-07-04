@@ -10,7 +10,7 @@ namespace POAFGVApp
     {
         [OneToMany]
         public List<OrderDetail> OrdersDetail { get; set; }
-        public EnumPaymentType PaymentType { get; set; }
+        public string PaymentType { get; set; }
         public DateTimeOffset OrderDateTime { get; set; }
 
         [Ignore]
@@ -31,7 +31,7 @@ namespace POAFGVApp
             get
             {
                 if (OrdersDetail != null && OrdersDetail.Any())
-                    return $"Pedido pago com {PaymentType.GetDescription()}";
+                    return $"Pedido pago com {PaymentType}";
 
                 return "Nenhum pagamento encontrado.";
             }
