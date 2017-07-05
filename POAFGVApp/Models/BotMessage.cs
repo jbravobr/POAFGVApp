@@ -12,11 +12,7 @@ namespace POAFGVApp
         public string[] Images { get; set; }
         public Attachment[] Attachments { get; set; }
         public string ETag { get; set; }
-    }
-
-    public class Attachment
-    {
-        public string Url { get; set; }
-        public string ContentType { get; set; }
+        public bool IsIncoming { get; set; }
+        public DateTime MessageDateTime { get; set; }
     }
 }

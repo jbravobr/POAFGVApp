@@ -19,7 +19,7 @@ namespace POAFGVApp
         {
             try
             {
-                NavigationService.NavigateAsync("NewOrderPage");
+                NavigationService.NavigateAsync("OrderFinishedPage");
             }
             catch (Exception ex)
             {
@@ -54,6 +54,7 @@ namespace POAFGVApp
                                   new ContainerControlledLifetimeManager());
 
             Container.RegisterInstance(Acr.Settings.Settings.Current);
+            Container.RegisterInstance(Acr.UserDialogs.UserDialogs.Instance);
 
             Container.RegisterType(typeof(IBotConnector), typeof(BotConnector));
         }

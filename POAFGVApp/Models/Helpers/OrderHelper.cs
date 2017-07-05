@@ -22,7 +22,6 @@ namespace POAFGVApp
                             {
                                  Id= 1,
                                  Description = "Calabreza",
-                                 OrderId = 1,
                                  Price = 30.00M
                             }
                         }
@@ -46,7 +45,6 @@ namespace POAFGVApp
                             {
                                  Id= 2,
                                  Description = "Portuguesa",
-                                 OrderId = 2,
                                  Price = 28.00M
                             }
                         }
@@ -70,7 +68,6 @@ namespace POAFGVApp
                             {
                                  Id= 3,
                                  Description = "Muçarela",
-                                 OrderId = 3,
                                  Price = 20.00M
                             }
                         }
@@ -94,14 +91,12 @@ namespace POAFGVApp
                             {
                                  Id= 4,
                                  Description = "Calabreza",
-                                 OrderId = 4,
                                  Price = 30.00M
                             },
                             new Product()
                             {
                                 Id = 2,
                                 Description = "Portuguesa",
-                                OrderId = 4,
                                 Price = 49.00M
                             }
                         }

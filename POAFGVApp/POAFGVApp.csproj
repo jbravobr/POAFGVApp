@@ -64,7 +64,6 @@
     <Compile Include="ApplicationServices\Bases\IBaseApplicationService.cs" />
     <Compile Include="ApplicationServices\UserApplicationServices.cs" />
     <Compile Include="ApplicationServices\IUserApplicationService.cs" />
-    <Compile Include="Models\Message.cs" />
     <Compile Include="ViewModels\NewOrderPageViewModel.cs" />
     <Compile Include="Views\NewOrderPage.xaml.cs">
       <DependentUpon>NewOrderPage.xaml</DependentUpon>
@@ -107,6 +106,7 @@
     <Compile Include="Models\BotMessageRoot.cs" />
     <Compile Include="Models\Conversation.cs" />
     <Compile Include="Bot\IBotConnector.cs" />
+    <Compile Include="Models\Attachment.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.ServiceLocation">
@@ -180,6 +180,15 @@
     </Reference>
     <Reference Include="System.Net.Http.Primitives">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat">
+      <HintPath>..\packages\Splat.1.6.2\lib\Portable-net45+win+wpa81+wp80\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs">
+      <HintPath>..\packages\Acr.UserDialogs.6.4.1\lib\portable-net45+wp8+win8+wpa81\Acr.UserDialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs.Interface">
+      <HintPath>..\packages\Acr.UserDialogs.6.4.1\lib\portable-net45+wp8+win8+wpa81\Acr.UserDialogs.Interface.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

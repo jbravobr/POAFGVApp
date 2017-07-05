@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="POAFGVApp.Views.IncomingViewCell"
     xmlns:plugin="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
-    <Grid
+    <Grid x:Name="gridCell"
         ColumnSpacing="2"
         Padding="5">
         <Grid.ColumnDefinitions>

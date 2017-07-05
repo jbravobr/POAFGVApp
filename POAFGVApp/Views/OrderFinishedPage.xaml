@@ -17,7 +17,7 @@
                 <StackLayout
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="Start"
-                    HeightRequest="270"
+                    HeightRequest="215"
                     Spacing="3"
                     BackgroundColor="#62AC5B">
                     <Label
@@ -28,14 +28,14 @@
                         TextColor="White" />
                     <ffimageloading:CachedImage
                         Aspect="AspectFit"
-                        HeightRequest="150"
-                        WidthRequest="150"
+                        HeightRequest="100"
+                        WidthRequest="100"
                         Margin="0,15"
                         Source="orderdone.png" />
                 </StackLayout>
                 <StackLayout
                     HorizontalOptions="FillAndExpand"
-                    HeightRequest="250"
+                    HeightRequest="200"
                     BackgroundColor="#FCFCFC">
                     <Grid
                         ColumnSpacing="0"
@@ -58,28 +58,18 @@
                                 TextColor="Black" />
                             <Label
                                 Margin="20,-20"
-                                TextColor="#D2D2D2">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span
-                                            Text="Pedido n˚1. Enviado às "
-                                            FontSize="15" />
-                                        <Span
-                                            Text="20:37"
-                                            FontSize="15"
-                                            FontAttributes="Bold" />
-                                    </FormattedString>
-                                </Label.FormattedText>
+                                TextColor="#D2D2D2"
+                                FormattedText="{Binding OrderDatetimeFormattedString}">
                             </Label>
                             <StackLayout
                                 Orientation="Horizontal"
                                 Margin="19,60">
                                 <Label
-                                    Text="1 PIZZA CALABRESA, 1 PIZZA PORTUGUESA"
+                                    Text="{Binding Products}"
                                     FontSize="12"
                                     TextColor="#666666" />
                                 <Label
-                                    Text="R$30,00"
+                                    Text="{Binding Total}"
                                     FontSize="15"
                                     Margin="40,-2"
                                     HorizontalOptions="End"
@@ -124,6 +114,25 @@
                         <TapGestureRecognizer
                             Command="{Binding SeeOrderDetailsCmd}" />
                     </StackLayout.GestureRecognizers>
+                </StackLayout>
+                 <StackLayout
+                    Padding="0"
+                    Spacing="0"
+                    Grid.Row="5"
+                    VerticalOptions="FillAndExpand"
+                    BackgroundColor="#F2F2F2">
+                    <Button
+                        Grid.Column="0"
+                        Text="ENCERRAR"
+                        Command="{Binding BackToHomeCmd}"
+                        FontSize="16"
+                        Margin="0,20,0,5"
+                        BorderWidth="2"
+                        BorderColor="Lime"
+                        HorizontalOptions="CenterAndExpand"
+                        WidthRequest="170"
+                        TextColor="White"
+                        BackgroundColor="Red" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>

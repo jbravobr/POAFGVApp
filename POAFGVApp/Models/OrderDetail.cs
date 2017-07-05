@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using SQLite;
+﻿using System.Collections.Generic;
 using SQLiteNetExtensions.Attributes;
 
 namespace POAFGVApp

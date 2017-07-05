@@ -2,7 +2,7 @@
 {
     public sealed class DBContext
     {
-        static object _lock = new object();
+        static readonly object _lock = new object();
         static volatile DBContext instance;
         static SQLite.SQLiteConnection conn = null;
 

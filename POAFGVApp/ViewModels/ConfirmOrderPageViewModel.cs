@@ -43,6 +43,7 @@ namespace POAFGVApp.ViewModels
 
             FinishOrderCmd = new DelegateCommand(FinishOrder);
         }
+
         Action FinishOrder
         {
             get
@@ -54,9 +55,11 @@ namespace POAFGVApp.ViewModels
                    {
                        var orderDone = await _orderService.InsertAsync(PreOrder);
                        if (orderDone > -1)
-                           await NavigateTo();
+                           await NavigateTo("OrderFinishedPage", PreOrder);
                        else
-                           await _pageDialogService.DisplayAlertAsync("Erro", "Ops... tivemos um problema para receber o seu pedido, por favor tente novamente", "OK");
+                           await _pageDialogService.DisplayAlertAsync("Erro",
+                                                                      "Ops... tivemos um problema para receber o seu pedido, por favor tente novamente",
+                                                                      "OK");
                    }
                    else
                        return;
@@ -66,36 +69,43 @@ namespace POAFGVApp.ViewModels
 
         async Task SetupViewFields()
         {
-			var lastOder = (await _orderService.GetAllAsync());
-			OrderID = lastOder != null && lastOder.Any() ? $"Pedido #{lastOder.Last().Id + 1}" : "Pedido #1";
+            try
+            {
+                var lastOder = (await _orderService.GetAllAsync());
+                OrderID = lastOder != null && lastOder.Any() ? $"Pedido #{lastOder.Last().Id + 1}" : "Pedido #1";
 
-			Items = new List<ItemsFromOrder>();
-			decimal SubTotal = 0;
-			PreOrder.OrdersDetail.ForEach((orderItem) =>
-			   {
-				   orderItem.Products.ForEach((product) =>
-				   {
-					   Items.Add(new ItemsFromOrder() { Item = product.Description, Price = $"R$ {product.Price.ToString()}" });
-					   SubTotal += product.Price;
-				   });
-			   });
-			Total = $"R${SubTotal.ToString()}";
-			OrderDatetime = PreOrder.OrderDateTime;
-			Payment = PreOrder.PaymentType;
+                Items = new List<ItemsFromOrder>();
+                decimal SubTotal = 0;
+                PreOrder.OrdersDetail.ForEach((orderItem) =>
+                   {
+                       orderItem.Products.ForEach((product) =>
+                       {
+                           Items.Add(new ItemsFromOrder() { Item = product.Description, Price = $"R$ {product.Price.ToString()}" });
+                           SubTotal += product.Price;
+                       });
+                   });
+                Total = $"R${SubTotal.ToString()}";
+                OrderDatetime = PreOrder.OrderDateTime;
+                Payment = PreOrder.PaymentType;
 
-			var userAddress = await _userService.GetAllAsync();
-			if (userAddress != null && userAddress.Any())
-			{
-				Address = userAddress.FirstOrDefault().Address.Street;
-				Number = userAddress.FirstOrDefault().Address.Number.ToString();
-				Burgh = userAddress.FirstOrDefault().Address.Burgh;
-			}
-			else
-			{
-				Address = "Rua Maia de Lacerda";
-				Number = "186 - Apartamento 202";
-				Burgh = "Estácio - Rio de Janeiro";
-			}
+                var userAddress = await _userService.GetAllAsync();
+                if (userAddress != null && userAddress.Any())
+                {
+                    Address = userAddress.FirstOrDefault().Address.Street;
+                    Number = userAddress.FirstOrDefault().Address.Number.ToString();
+                    Burgh = userAddress.FirstOrDefault().Address.Burgh;
+                }
+                else
+                {
+                    Address = "Rua Maia de Lacerda";
+                    Number = "186 - Apartamento 202";
+                    Burgh = "Estácio - Rio de Janeiro";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async override void OnNavigatedTo(NavigationParameters parameters)
@@ -107,9 +117,14 @@ namespace POAFGVApp.ViewModels
             }
         }
 
-        private async Task NavigateTo()
+        private async Task NavigateTo(string page, Order order)
         {
-            await _navigationSerivce.NavigateAsync("");
+            var navParameters = new NavigationParameters()
+            {
+                {"Order", order}
+            };
+
+            await _navigationSerivce.NavigateAsync(page, navParameters);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using SQLiteNetExtensions.Attributes;
+﻿using SQLiteNetExtensions.Attributes;
 
 namespace POAFGVApp
 {

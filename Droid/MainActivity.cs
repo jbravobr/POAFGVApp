@@ -8,13 +8,14 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using FFImageLoading.Forms.Droid;
+using Xamarin.Forms;
 
 namespace POAFGVApp.Droid
 {
     [Activity(Label = "PizzaBot",
-              Icon = "@drawable/ic_launcher", 
-              Theme = "@style/MyTheme", 
-              MainLauncher = true, 
+              Icon = "@drawable/ic_launcher",
+              Theme = "@style/MyTheme",
+              MainLauncher = true,
               ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
@@ -30,6 +31,9 @@ namespace POAFGVApp.Droid
 
             //Init Image Circle Plugin
             ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
+
+            //UserDialogs Init
+            Acr.UserDialogs.UserDialogs.Init(() => (Activity)Forms.Context);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 

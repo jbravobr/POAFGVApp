@@ -97,7 +97,9 @@
                         SeparatorVisibility="Default">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <templates:PaymentDetailTemplate />
+                                <ViewCell>
+                                    <templates:PaymentDetailTemplate />
+                                </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -150,7 +152,7 @@
                             TextColor="Gray"
                             Margin="10,15" />
                         <Label
-                            Text="{Binding OrderDatetime}"
+                            Text="{Binding OrderDatetime, StringFormat='{0:dd/MM/yyyy hh:mm tt}'}"
                             HorizontalOptions="EndAndExpand"
                             HorizontalTextAlignment="Start"
                             TextColor="Gray"

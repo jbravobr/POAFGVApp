@@ -13,7 +13,7 @@ namespace POAFGVApp
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
-            var messageVm = item as Message;
+            var messageVm = item as BotMessage;
             if (messageVm == null)
                 return null;
 

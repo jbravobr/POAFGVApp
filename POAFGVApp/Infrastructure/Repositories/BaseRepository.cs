@@ -26,7 +26,6 @@ namespace POAFGVApp
                 App.AppSQLiteConn.CreateTable<Order>(SQLite.CreateFlags.None);
                 App.AppSQLiteConn.CreateTable<OrderDetail>(SQLite.CreateFlags.None);
                 App.AppSQLiteConn.CreateTable<Product>(SQLite.CreateFlags.None);
-                App.AppSQLiteConn.CreateTable<Message>(SQLite.CreateFlags.None);
             }
             catch (Exception ex)
             {
@@ -52,7 +51,7 @@ namespace POAFGVApp
             try
             {
                 lock (_lock)
-                    return App.AppSQLiteConn.GetAllWithChildren<T>(recursive: true);
+                    return App.AppSQLiteConn.GetAllWithChildren<T>();
             }
             catch (Exception ex)
             {
@@ -65,7 +64,7 @@ namespace POAFGVApp
             try
             {
                 lock (_lock)
-                    return App.AppSQLiteConn.GetAllWithChildren<T>(predicate, recursive: true);
+                    return App.AppSQLiteConn.GetAllWithChildren<T>(predicate);
             }
             catch (Exception ex)
             {
@@ -79,7 +78,7 @@ namespace POAFGVApp
             {
                 var pk = App.AppSQLiteConn.Table<T>().FirstOrDefault(x => x.Id == pkId);
                 if (pk != null)
-                    return App.AppSQLiteConn.GetWithChildren<T>(pk, recursive: true);
+                    return App.AppSQLiteConn.GetWithChildren<T>(pk);
 
                 throw new ArgumentException("Chave inválida ou inexistente", nameof(pk));
             }
@@ -94,7 +93,7 @@ namespace POAFGVApp
             try
             {
                 lock (_lock)
-                    return App.AppSQLiteConn.GetWithChildren<T>(predicate, recursive: true);
+                    return App.AppSQLiteConn.GetWithChildren<T>(predicate);
             }
             catch (Exception ex)
             {

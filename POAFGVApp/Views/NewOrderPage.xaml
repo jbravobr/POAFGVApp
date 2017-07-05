@@ -29,24 +29,25 @@
                 Orientation="Horizontal"
                 HeightRequest="43"
                 Spacing="4">
-                <!--- ENTRY  -->
                 <Entry
                     Style="{x:Static local:MainTheme.ChatMessageEntryStyle}"
                     Text="{Binding Text}"
                     Placeholder="Digite algo aqui..."
                     HorizontalOptions="FillAndExpand" />
-                <!--- SEND BUTTON  -->
                 <ffimageloading:CachedImage
                     HorizontalOptions="End"
                     HeightRequest="20"
                     WidthRequest="20"
                     Source="send.png">
                     <ffimageloading:CachedImage.GestureRecognizers>
-                         <TapGestureRecognizer
+                        <TapGestureRecognizer
                             Command="{Binding SendMessageCmd}" />
                     </ffimageloading:CachedImage.GestureRecognizers>
                 </ffimageloading:CachedImage>
-                <ActivityIndicator IsRunning="{Binding IsRunning}" IsVisible="{Binding IsVisible}" Color="Red" />
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}"
+                    IsVisible="{Binding IsVisible}"
+                    Color="Red" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -5,6 +5,7 @@
     x:Class="POAFGVApp.Views.OutgoingViewCell"
     xmlns:plugin="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
     <Grid
+        x:Name="gridCell"
         ColumnSpacing="2"
         Padding="5">
         <Grid.ColumnDefinitions>
