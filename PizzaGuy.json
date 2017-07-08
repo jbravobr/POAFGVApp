@@ -1,0 +1,283 @@
+{
+  "luis_schema_version": "2.1.0",
+  "versionId": "0.1",
+  "name": "PizzaGuy",
+  "desc": "",
+  "culture": "pt-br",
+  "intents": [
+    {
+      "name": "IncompletedOrder"
+    },
+    {
+      "name": "MissedPaymentForm"
+    },
+    {
+      "name": "None"
+    },
+    {
+      "name": "Order"
+    },
+    {
+      "name": "Payment"
+    },
+    {
+      "name": "PickFlavour"
+    }
+  ],
+  "entities": [
+    {
+      "name": "Item",
+      "children": [
+        "pizza"
+      ]
+    },
+    {
+      "name": "Pagamento",
+      "children": [
+        "crédito",
+        "credito",
+        "débito",
+        "debito",
+        "dinheiro"
+      ]
+    },
+    {
+      "name": "PagamentoFaltandoInformacao"
+    },
+    {
+      "name": "PedidoIncompleto"
+    },
+    {
+      "name": "Sabor",
+      "children": [
+        "Peperoni",
+        "Portuguesa",
+        "Calabresa",
+        "Muçarela",
+        "Mussarela"
+      ]
+    }
+  ],
+  "composites": [],
+  "closedLists": [],
+  "bing_entities": [
+    "number"
+  ],
+  "actions": [],
+  "model_features": [
+    {
+      "name": "Item",
+      "mode": true,
+      "words": "pizza",
+      "activated": true
+    },
+    {
+      "name": "Pagamento",
+      "mode": true,
+      "words": "crédito,credito,débito,debito,dinheiro",
+      "activated": true
+    },
+    {
+      "name": "PagamentoFaltandoInformacao",
+      "mode": true,
+      "words": "pagar com cartão,cartão",
+      "activated": true
+    },
+    {
+      "name": "PedidoIncompleto",
+      "mode": true,
+      "words": "quero pedir,quero fazer um pedido,quero pedir uma pizza",
+      "activated": true
+    },
+    {
+      "name": "Sabores",
+      "mode": true,
+      "words": "calabresa,muçarela,mussarela,portuguesa",
+      "activated": true
+    }
+  ],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "quero uma pizza",
+      "intent": "Order",
+      "entities": [
+        {
+          "entity": "Item",
+          "startPos": 10,
+          "endPos": 14
+        }
+      ]
+    },
+    {
+      "text": "quero pizza",
+      "intent": "Order",
+      "entities": [
+        {
+          "entity": "Item",
+          "startPos": 6,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "quero pedir uma pizza",
+      "intent": "IncompletedOrder",
+      "entities": [
+        {
+          "entity": "PedidoIncompleto",
+          "startPos": 0,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "cartão",
+      "intent": "MissedPaymentForm",
+      "entities": [
+        {
+          "entity": "PagamentoFaltandoInformacao",
+          "startPos": 0,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "quero fazer um pedido",
+      "intent": "IncompletedOrder",
+      "entities": [
+        {
+          "entity": "PedidoIncompleto",
+          "startPos": 0,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "quero pedir",
+      "intent": "IncompletedOrder",
+      "entities": [
+        {
+          "entity": "PedidoIncompleto",
+          "startPos": 0,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "quero pagar em dinheiro",
+      "intent": "Payment",
+      "entities": [
+        {
+          "entity": "Pagamento",
+          "startPos": 15,
+          "endPos": 22
+        }
+      ]
+    },
+    {
+      "text": "quero uma calabresa",
+      "intent": "PickFlavour",
+      "entities": [
+        {
+          "entity": "Sabor",
+          "startPos": 10,
+          "endPos": 18
+        }
+      ]
+    },
+    {
+      "text": "gostaria de pedir uma pizza de portuguesa",
+      "intent": "PickFlavour",
+      "entities": [
+        {
+          "entity": "Sabor",
+          "startPos": 31,
+          "endPos": 40
+        }
+      ]
+    },
+    {
+      "text": "quero pedir uma de muçarela",
+      "intent": "PickFlavour",
+      "entities": [
+        {
+          "entity": "Sabor",
+          "startPos": 19,
+          "endPos": 26
+        }
+      ]
+    },
+    {
+      "text": "pagamento em dinheiro",
+      "intent": "Payment",
+      "entities": [
+        {
+          "entity": "Pagamento",
+          "startPos": 13,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "quero pagar no cartão de crédito",
+      "intent": "Payment",
+      "entities": [
+        {
+          "entity": "Pagamento",
+          "startPos": 15,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "vou pagar no débito",
+      "intent": "Payment",
+      "entities": [
+        {
+          "entity": "Pagamento",
+          "startPos": 13,
+          "endPos": 18
+        }
+      ]
+    },
+    {
+      "text": "vou pagar com dinheiro",
+      "intent": "Payment",
+      "entities": [
+        {
+          "entity": "Pagamento",
+          "startPos": 14,
+          "endPos": 21
+        }
+      ]
+    },
+    {
+      "text": "quero 2 de calabresa e 1 de portuguesa",
+      "intent": "PickFlavour",
+      "entities": [
+        {
+          "entity": "Sabor",
+          "startPos": 11,
+          "endPos": 19
+        },
+        {
+          "entity": "Sabor",
+          "startPos": 28,
+          "endPos": 37
+        }
+      ]
+    },
+    {
+      "text": "quero pagar com cartão",
+      "intent": "MissedPaymentForm",
+      "entities": [
+        {
+          "entity": "PagamentoFaltandoInformacao",
+          "startPos": 0,
+          "endPos": 21
+        }
+      ]
+    }
+  ]
+}

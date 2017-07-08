@@ -11,6 +11,9 @@ namespace POAFGVApp.iOS
             //FFImageLoading Init
             FFImageLoading.Forms.Touch.CachedImageRenderer.Init();
 
+            //Init Image Circle Plugin
+            ImageCircle.Forms.Plugin.iOS.ImageCircleRenderer.Init();
+
             global::Xamarin.Forms.Forms.Init();
 
             // Code for starting up the Xamarin Test Cloud Agent
