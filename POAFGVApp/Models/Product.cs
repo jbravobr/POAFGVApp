@@ -8,5 +8,8 @@ namespace POAFGVApp
     {
         public string Description { get; set; }
         public decimal Price { get; set; }
+
+        [ForeignKey(typeof(OrderDetail))]
+        public int OrderDetailId { get; set; }
     }
 }

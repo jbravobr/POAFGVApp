@@ -7,6 +7,12 @@ namespace POAFGVApp.Views
         public OrderFinishedPage()
         {
             InitializeComponent();
-        }
-    }
+			NavigationPage.SetHasNavigationBar(this, false);
+		}
+
+		protected override bool OnBackButtonPressed()
+		{
+			return false;
+		}
+	}
 }

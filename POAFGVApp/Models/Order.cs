@@ -8,7 +8,7 @@ namespace POAFGVApp
 {
     public class Order : BaseEntity
     {
-        [OneToMany]
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<OrderDetail> OrdersDetail { get; set; }
         public string PaymentType { get; set; }
         public DateTimeOffset OrderDateTime { get; set; }

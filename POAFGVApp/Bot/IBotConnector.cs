@@ -6,6 +6,7 @@ namespace POAFGVApp
     public interface IBotConnector
     {
         Task<BotMessage> SendMessage(string username, string messageText);
-        Task<bool> Setup();
+        Task Setup();
+        bool IsBotConnectorConfigured();
     }
 }

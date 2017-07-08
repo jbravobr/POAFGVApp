@@ -36,7 +36,7 @@ namespace POAFGVApp
             return await Task.Run(() => _repository.GetById(pkId));
         }
 
-        public async Task<T> GetWithChildrenByPredicateAsync(Expression<Func<T, bool>> predicate)
+        public async Task<T> GetWithChildrenByPredicateAsync(Func<T, bool> predicate)
         {
             return await Task.Run(() => _repository.GetWithChildrenByPredicate(predicate));
         }
@@ -61,9 +61,14 @@ namespace POAFGVApp
             return entity != null ? entity.Id : -1;
         }
 
-        public Task UpdateAsync(T TEntity)
+        public async Task UpdateAsync(T TEntity)
         {
-            throw new NotImplementedException();
+            await Task.Run(() => _repository.Update(TEntity));
+        }
+
+        public async Task<T> GetWithChildrenByPredicateAsync(int pk)
+        {
+            return await Task.Run(() => _repository.GetWithChildrenByPredicate(pk));
         }
     }
 }

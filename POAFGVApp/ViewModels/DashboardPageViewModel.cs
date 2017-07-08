@@ -21,6 +21,13 @@ namespace POAFGVApp.ViewModels
 
             MenuSelectCmd = new DelegateCommand<string>(MenuSelect);
             Xamarin.Forms.MessagingCenter.Subscribe<DashboardPage, string>(this, "NewOrder", async (page, menu) => await NavigateTo(menu));
+            Xamarin.Forms.MessagingCenter.Subscribe<DashboardPage, string>(this, "OrderList", async (page, menu) => await NavigateTo(menu));
+        }
+
+        public override void Destroy()
+        {
+            Xamarin.Forms.MessagingCenter.Unsubscribe<DashboardPage>(this, "NewOrder");
+            Xamarin.Forms.MessagingCenter.Unsubscribe<DashboardPage>(this, "OrderList");
         }
 
         private async Task NavigateTo(string menu)

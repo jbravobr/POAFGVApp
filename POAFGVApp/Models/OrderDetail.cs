@@ -5,7 +5,7 @@ namespace POAFGVApp
 {
     public class OrderDetail : BaseEntity
     {
-        [OneToMany]
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Product> Products { get; set; }
 
         [ForeignKey(typeof(Order))]

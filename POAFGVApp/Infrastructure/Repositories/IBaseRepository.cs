@@ -11,7 +11,8 @@ namespace POAFGVApp
         void Update(T TEntity);
 
         T GetById(int pkId);
-        T GetWithChildrenByPredicate(Expression<Func<T, bool>> predicate);
+        T GetWithChildrenByPredicate(Func<T, bool> predicate);
+        T GetWithChildrenByPredicate(int pk);
 
         List<T> GetAll();
         List<T> GetAllWithChildrenByPredicate(Expression<Func<T, bool>> predicate);

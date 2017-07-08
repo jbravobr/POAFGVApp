@@ -4,7 +4,7 @@ namespace POAFGVApp
 {
     public class BaseEntity
     {
-        [AutoIncrement, PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
     }
 }

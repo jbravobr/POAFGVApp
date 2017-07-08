@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Linq;
 using Prism.Navigation;
 using Prism.Commands;
 using Prism.Services;
 using Acr.Settings;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace POAFGVApp.ViewModels
 {
@@ -54,11 +56,15 @@ namespace POAFGVApp.ViewModels
 
         async Task<bool> GetUser()
         {
-            var user = await _userService.DoRemoteLogin(Login, Password);
+            if (_settings.Get<User>("USER_LOGGED") != null)
+                return await Task.FromResult(true);
+
+            Expression<Func<User, bool>> filter = (f) => f.Login.Equals(Login) && f.Password.Equals(Password);
+            var user = await _userService.GetAllWithChildrenByPredicateAsync(filter);
             if (user != null)
             {
-                _settings.Set<bool>("USER_LOGGED", true);
-                await _userService.InsertAsync(user);
+                _settings.Set<User>("USER_LOGGED", user.FirstOrDefault());
+                await _userService.InsertAsync(user.FirstOrDefault());
 
                 return await Task.FromResult(true);
             }

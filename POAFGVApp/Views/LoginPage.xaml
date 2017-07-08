@@ -8,139 +8,137 @@
     prism:ViewModelLocator.AutowireViewModel="True"
     Title="Login"
     BackgroundColor="Black"
-    Opacity="0.9"
-    BackgroundImage="bg1.jpg"
     x:Class="POAFGVApp.Views.LoginPage">
     <ContentPage.Content>
-        <Grid
-            HorizontalOptions="CenterAndExpand"
+        <StackLayout
             VerticalOptions="FillAndExpand"
-            WidthRequest="244">
-            <Grid.RowDefinitions>
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="*" />
-            </Grid.RowDefinitions>
+            HorizontalOptions="FillAndExpand">
             <ffimageloading:CachedImage
-                Grid.Row="0"
-                Grid.Column="0"
-                Margin="0,70,0,50"
                 Aspect="AspectFill"
-                HorizontalOptions="Center"
-                Source="logotipo.png"
-                VerticalOptions="CenterAndExpand" />
-            <StackLayout
-                Grid.Row="1"
-                Grid.Column="0"
+                Grid.Row="0"
+                Opacity="0.8"
+                HorizontalOptions="FillAndExpand"
+                Source="bg1.png"
+                VerticalOptions="FillAndExpand" />
+            <Grid
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand">
-                <BoxView
-                    Margin="0"
-                    BackgroundColor="{x:Static styles:MainTheme.OverImageTextColor}"
-                    HeightRequest="0.5"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="Center" />
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                </Grid.RowDefinitions>
                 <StackLayout
-                    HorizontalOptions="FillAndExpand"
-                    Orientation="Horizontal"
-                    VerticalOptions="FillAndExpand"
-                    WidthRequest="244">
-                    <Image
-                        Aspect="AspectFill"
-                        HorizontalOptions="Start"
-                        Source="usuario.png"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="StartAndExpand">
+                    <BoxView
+                        Margin="0"
+                        BackgroundColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                        HeightRequest="0.5"
+                        HorizontalOptions="FillAndExpand"
                         VerticalOptions="Center" />
-                    <styles:LineEntry
-                        HasBorder="false"
-                        HorizontalOptions="StartAndExpand"
-                        Placeholder="Usuário"
-                        PlaceholderColor="{x:Static styles:MainTheme.OverImageTextColor}"
-                        Text="{Binding Login}"
-                        TextColor="White"
+                    <StackLayout
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal"
                         VerticalOptions="FillAndExpand"
-                        WidthRequest="200" />
-                </StackLayout>
-                <BoxView
-                    Margin="0"
-                    BackgroundColor="White"
-                    HeightRequest="0.5"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="Center" />
-                <StackLayout
-                    HorizontalOptions="FillAndExpand"
-                    Orientation="Horizontal"
-                    VerticalOptions="FillAndExpand">
-                    <Image
-                        Aspect="AspectFill"
-                        HorizontalOptions="Start"
-                        Source="cadeado.png"
+                        WidthRequest="244">
+                        <ffimageloading:CachedImage
+                            Aspect="AspectFit"
+                            HeightRequest="15"
+                            WidthRequest="15"
+                            HorizontalOptions="Start"
+                            Source="usuario.png"
+                            VerticalOptions="Center" />
+                        <styles:LineEntry
+                            HasBorder="false"
+                            HorizontalOptions="StartAndExpand"
+                            Placeholder="Usuário"
+                            PlaceholderColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                            Text="{Binding Login}"
+                            TextColor="White"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="200" />
+                    </StackLayout>
+                    <BoxView
+                        Margin="0"
+                        BackgroundColor="White"
+                        HeightRequest="0.5"
+                        HorizontalOptions="FillAndExpand"
                         VerticalOptions="Center" />
-                    <styles:LineEntry
-                        HasBorder="false"
-                        HorizontalOptions="StartAndExpand"
-                        IsPassword="True"
-                        Placeholder="*****"
-                        PlaceholderColor="{x:Static styles:MainTheme.OverImageTextColor}"
-                        Text="{Binding Password}"
-                        TextColor="{x:Static styles:MainTheme.OverImageTextColor}"
-                        VerticalOptions="FillAndExpand"
-                        WidthRequest="200" />
+                    <StackLayout
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal"
+                        VerticalOptions="FillAndExpand">
+                        <ffimageloading:CachedImage
+                            Aspect="AspectFit"
+                            HeightRequest="15"
+                            WidthRequest="15"
+                            HorizontalOptions="Start"
+                            Source="cadeado.png"
+                            VerticalOptions="Center" />
+                        <styles:LineEntry
+                            HasBorder="false"
+                            HorizontalOptions="StartAndExpand"
+                            IsPassword="True"
+                            Placeholder="*****"
+                            PlaceholderColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                            Text="{Binding Password}"
+                            TextColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                            VerticalOptions="FillAndExpand"
+                            WidthRequest="200" />
+                    </StackLayout>
+                    <BoxView
+                        Margin="0"
+                        BackgroundColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                        HeightRequest="0.5"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center" />
                 </StackLayout>
-                <BoxView
-                    Margin="0"
-                    BackgroundColor="{x:Static styles:MainTheme.OverImageTextColor}"
-                    HeightRequest="0.5"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="Center" />
-            </StackLayout>
-            <Button
-                Grid.Row="2"
-                Grid.Column="0"
-                Margin="0,10"
-                BackgroundColor="{x:Static styles:MainTheme.BaseButtonColor}"
-                Command="{Binding DoLoginCmd}"
-                HeightRequest="49"
-                HorizontalOptions="FillAndExpand"
-                Text="Entrar"
-                TextColor="{x:Static styles:MainTheme.OverImageTextColor}"
-                VerticalOptions="FillAndExpand"
-                WidthRequest="257" />
-            <Label
-                Grid.Row="3"
-                Grid.Column="0"
-                FontSize="12"
-                HorizontalOptions="FillAndExpand"
-                HorizontalTextAlignment="Center"
-                TextColor="{x:Static styles:MainTheme.OverImageTextColor}"
-                VerticalOptions="FillAndExpand">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span
-                            FontSize="12"
-                            Text="Esqueceu seus dados de login? " />
-                        <Span
-                            FontAttributes="Bold"
-                            FontSize="12"
-                            Text="Obtenha ajuda para entrar" />
-                    </FormattedString>
-                </Label.FormattedText>
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer
-                        Command="{Binding ForgotLoginCmd}"
-                        NumberOfTapsRequired="1" />
-                </Label.GestureRecognizers>
-            </Label>
-        </Grid>
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="0,10"
+                    BackgroundColor="{x:Static styles:MainTheme.BaseButtonColor}"
+                    Command="{Binding DoLoginCmd}"
+                    HeightRequest="49"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Entrar"
+                    TextColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="257" />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    FontSize="14"
+                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    TextColor="{x:Static styles:MainTheme.OverImageTextColor}"
+                    VerticalOptions="CenterAndExpand">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                FontSize="12"
+                                Text="Esqueceu seus dados de login? " />
+                            <Span
+                                FontAttributes="Bold"
+                                FontSize="12"
+                                Text="Obtenha ajuda para entrar" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding ForgotLoginCmd}"
+                            NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -14,12 +14,19 @@ namespace POAFGVApp
         private string _directLineKey = "Rlp-XmRmpzw.cwA.D74.9OB3oLVS9inlPl9WbqYMbPVpOXdkKNUrBQiMP8086pk";
         private string conversationId;
         private string token;
+        private bool _isBotConnected { get; set; }
+
 
         public BotConnector()
         {
         }
 
-        public async Task<bool> Setup()
+        public bool IsBotConnectorConfigured()
+        {
+            return _isBotConnected;
+        }
+
+        public async Task Setup()
         {
             try
             {
@@ -49,18 +56,17 @@ namespace POAFGVApp
                         _lastConversation = new Conversation();
                         _lastConversation.ConversationId = JsonConvert.DeserializeObject<Conversation>(conversationInfo).ConversationId;
 
-                        App.IsBotConnectorConfigured = true;
-                        return true;
+                        _isBotConnected = true;
                     }
 
-                    App.IsBotConnectorConfigured = true;
-                    return true;
+                    _isBotConnected = true;
                 }
 
-                return false;
+                _isBotConnected = false;
             }
             catch (Exception ex)
             {
+                _isBotConnected = false;
                 throw ex;
             }
         }

@@ -12,7 +12,8 @@ namespace POAFGVApp
         Task UpdateAsync(T TEntity);
 
         Task<T> GetByIdAsync(int pkId);
-        Task<T> GetWithChildrenByPredicateAsync(Expression<Func<T, bool>> predicate);
+        Task<T> GetWithChildrenByPredicateAsync(Func<T, bool> predicate);
+        Task<T> GetWithChildrenByPredicateAsync(int pk);
 
         Task<List<T>> GetAllAsync();
         Task<List<T>> GetAllWithChildrenByPredicateAsync(Expression<Func<T, bool>> predicate);

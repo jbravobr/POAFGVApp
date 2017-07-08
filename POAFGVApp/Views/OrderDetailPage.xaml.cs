@@ -10,6 +10,16 @@ namespace POAFGVApp.Views
         public OrderDetailPage()
         {
             InitializeComponent();
+
+            if (!App.IsFromListOrders)
+                NavigationPage.SetHasNavigationBar(this, false);
+
+            App.IsFromListOrders = false;
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return false;
         }
     }
 }

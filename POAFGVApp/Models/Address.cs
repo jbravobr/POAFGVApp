@@ -1,4 +1,7 @@
 ﻿using System;
+using SQLite;
+using SQLiteNetExtensions.Attributes;
+
 namespace POAFGVApp
 {
     public class Address : BaseEntity

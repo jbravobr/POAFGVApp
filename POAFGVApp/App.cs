@@ -13,13 +13,13 @@ namespace POAFGVApp
     {
         public static SQLite.SQLiteConnection AppSQLiteConn { get; set; }
         public static HttpClient AppHttpClient { get; set; }
-        public static bool IsBotConnectorConfigured { get; set; } = false;
+        public static bool IsFromListOrders { get; set; } = false;
 
         protected override void OnInitialized()
         {
             try
             {
-                NavigationService.NavigateAsync("OrderFinishedPage");
+                NavigationService.NavigateAsync("LoginPage");
             }
             catch (Exception ex)
             {
@@ -53,9 +53,11 @@ namespace POAFGVApp
                                   typeof(UserApplicationServices),
                                   new ContainerControlledLifetimeManager());
 
+            // Registrando IoC para instâncias de plugins
             Container.RegisterInstance(Acr.Settings.Settings.Current);
             Container.RegisterInstance(Acr.UserDialogs.UserDialogs.Instance);
 
+            // Registrando IoC para Interfaces próprias (Bot)
             Container.RegisterType(typeof(IBotConnector), typeof(BotConnector));
         }
     }

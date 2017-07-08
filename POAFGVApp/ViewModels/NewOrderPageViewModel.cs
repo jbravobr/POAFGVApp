@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Linq.Expressions;
+using Humanizer;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
@@ -27,8 +28,8 @@ namespace POAFGVApp.ViewModels
 
         Order PreOrder { get; set; }
         List<BotMessage> _messages { get; set; } = new List<BotMessage>();
-        string[] sabores = new[] { "calabresa", "portuguesa", "peperoni", "calabreza", "peperonni", "muçarela", "mussarela" };
         string[] pagamentos = new[] { "Dinheiro", "Débito", "Cartão de Crédito", "Cartao de Credito", "Cartao de Debito" };
+        string[] existProducts = new[] { "Calabresa", "Portuguesa", "Muçarela" };
 
         public NewOrderPageViewModel(IPageDialogService pageServiceDialog,
                                      INavigationService navigationService,
@@ -66,14 +67,8 @@ namespace POAFGVApp.ViewModels
 
         async Task<BotMessage> CallBotService()
         {
-            if (!App.IsBotConnectorConfigured)
-                App.IsBotConnectorConfigured = await _botConnector.Setup();
-
-            if (!App.IsBotConnectorConfigured)
-            {
-                await _pageServiceDialog.DisplayAlertAsync("Erro", "Não conectado ao Bot.", "OK");
-                return null;
-            }
+            if (!_botConnector.IsBotConnectorConfigured())
+                await _botConnector.Setup();
 
             return await _botConnector.SendMessage("Rodrigo", Text);
         }
@@ -88,9 +83,9 @@ namespace POAFGVApp.ViewModels
         {
             if (message.Text == "Ótimo, então vamos confirmar o seu pedido!")
             {
-                _userDialogs.ShowLoading("Finalizando Pedido", MaskType.Black);
-                await Task.Delay(5000);
-                _userDialogs.HideLoading();
+                Xamarin.Forms.Device.BeginInvokeOnMainThread(() => _userDialogs.ShowLoading("Finalizando Pedido", MaskType.Black));
+                await Task.Delay(3000);
+                Xamarin.Forms.Device.BeginInvokeOnMainThread(_userDialogs.HideLoading);
                 await NavigateTo("ConfirmOrderPage", PreOrder);
             }
         }
@@ -123,18 +118,25 @@ namespace POAFGVApp.ViewModels
                                                    AddNewMessageToChat(botMessage.Text, true);
                                                    Xamarin.Forms.MessagingCenter.Send<NewOrderPageViewModel, List<BotMessage>>(this, "ScrollTo", _messages);
 
-                                                   var flavours = sabores.ToList()
-                                                                         .Where(x => Text.ToLower().Contains(x));
+                                                   var selectedFlavours = existProducts.ToList()
+                                                                         .Where(x => Text.ToLower().Contains(x.ToLower()));
 
                                                    var products = new List<Product>();
-                                                   if (flavours != null && flavours.Any())
+                                                   if (selectedFlavours != null && selectedFlavours.Any())
                                                    {
-                                                       flavours.ForEach(delegate (string f)
+                                                       selectedFlavours.ForEach(async delegate (string flavour)
                                                        {
                                                            if (PreOrder.OrdersDetail == null)
                                                                PreOrder.OrdersDetail = new List<OrderDetail>();
 
-                                                           products.Add(new Product() { Description = f.ToUpper(), Price = 30.00M });
+                                                           var titleFlavour = flavour.Humanize(LetterCasing.Title);
+                                                           Func<Product, bool> filter = (f) => f.Description.Equals(titleFlavour);
+                                                           var product = await _productService.GetWithChildrenByPredicateAsync(filter);
+
+                                                           if (product != null)
+                                                               products.Add((product));
+                                                           else
+                                                               products.Add(new Product() { Description = titleFlavour, Price = 30.00M });
                                                        });
 
                                                        PreOrder.OrdersDetail.Add(new OrderDetail() { Products = products });
@@ -149,7 +151,6 @@ namespace POAFGVApp.ViewModels
                                                }
 
                                                Text = "";
-                                               await Task.Delay(5000);
                                                await FinalizeSession(botMessage);
                                            });
 

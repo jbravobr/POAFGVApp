@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -26,9 +27,24 @@ namespace POAFGVApp
             return await Task.Run(() => new User() { Id = 1, Login = "admin", Password = "admin", Name = "Rodrigo" });
         }
 
-        public Task<int> InsertAsync(User TEntity)
+        public async Task<int> InsertAsync(User TEntity)
         {
-            throw new NotImplementedException();
+            User entity;
+
+            try
+            {
+                await Task.Run(() => _userRepository.Insert(TEntity));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                entity = (await this.GetAllAsync()).Last();
+            }
+
+            return entity != null ? entity.Id : -1;
         }
 
         public Task DeleteAsync(User TEntity)
@@ -46,9 +62,9 @@ namespace POAFGVApp
             throw new NotImplementedException();
         }
 
-        public Task<User> GetWithChildrenByPredicateAsync(Expression<Func<User, bool>> predicate)
+        public async Task<User> GetWithChildrenByPredicateAsync(Func<User, bool> predicate)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() => _userRepository.GetWithChildrenByPredicate(predicate));
         }
 
         public async Task<List<User>> GetAllAsync()
@@ -56,9 +72,14 @@ namespace POAFGVApp
             return await Task.Run(() => _userRepository.GetAll());
         }
 
-        public Task<List<User>> GetAllWithChildrenByPredicateAsync(Expression<Func<User, bool>> predicate)
+        public async Task<List<User>> GetAllWithChildrenByPredicateAsync(Expression<Func<User, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() => _userRepository.GetAllWithChildrenByPredicate(predicate));
+        }
+
+        public async Task<User> GetWithChildrenByPredicateAsync(int pk)
+        {
+            return await Task.Run(() => _userRepository.GetWithChildrenByPredicate(pk));
         }
     }
 }
