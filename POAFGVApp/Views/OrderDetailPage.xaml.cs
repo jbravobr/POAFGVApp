@@ -19,7 +19,7 @@ namespace POAFGVApp.Views
 
         protected override bool OnBackButtonPressed()
         {
-            return false;
+            return true;
         }
     }
 }
