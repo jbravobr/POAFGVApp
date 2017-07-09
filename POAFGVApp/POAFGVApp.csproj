@@ -107,6 +107,8 @@
     <Compile Include="Models\Conversation.cs" />
     <Compile Include="Bot\IBotConnector.cs" />
     <Compile Include="Models\Attachment.cs" />
+    <Compile Include="Utils\UIFunctions\IPersonalSettings.cs" />
+    <Compile Include="Utils\UIFunctions\PersonalSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.ServiceLocation">
@@ -221,6 +223,7 @@
     <Folder Include="Models\VO\" />
     <Folder Include="CustomRenderers\" />
     <Folder Include="Bot\" />
+    <Folder Include="Utils\UIFunctions\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\LoginPage.xaml">

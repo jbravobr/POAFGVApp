@@ -18,12 +18,12 @@ namespace POAFGVApp.ViewModels
         INavigationService _navigationService { get; }
         IPageDialogService _pageDialogService { get; }
         IUserApplicationService _userService { get; }
-        ISettings _settings { get; }
+        IPersonalSettings _settings { get; }
 
         public LoginPageViewModel(INavigationService navigationService,
                                   IPageDialogService pageDialogService,
                                   IUserApplicationService userService,
-                                  ISettings settings)
+                                  IPersonalSettings settings)
         {
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
@@ -56,14 +56,14 @@ namespace POAFGVApp.ViewModels
 
         async Task<bool> GetUser()
         {
-            if (_settings.Get<User>("USER_LOGGED") != null)
+            if (_settings.Get("USER_LOGGED", typeof(User)) != null)
                 return await Task.FromResult(true);
 
             Expression<Func<User, bool>> filter = (f) => f.Login.Equals(Login) && f.Password.Equals(Password);
             var user = await _userService.GetAllWithChildrenByPredicateAsync(filter);
             if (user != null)
             {
-                _settings.Set<User>("USER_LOGGED", user.FirstOrDefault());
+                _settings.Set("USER_LOGGED", user.FirstOrDefault());
                 await _userService.InsertAsync(user.FirstOrDefault());
 
                 return await Task.FromResult(true);
