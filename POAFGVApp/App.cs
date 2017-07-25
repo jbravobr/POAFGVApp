@@ -19,7 +19,7 @@ namespace POAFGVApp
         {
             try
             {
-                NavigationService.NavigateAsync("LoginPage");
+                NavigationService.NavigateAsync("DashboardPage");
             }
             catch (Exception ex)
             {
@@ -29,36 +29,43 @@ namespace POAFGVApp
 
         protected override void RegisterTypes()
         {
-            // Registrando Views para navegação
-            Container.RegisterTypeForNavigation<LoginPage>();
-            Container.RegisterTypeForNavigation<DashboardPage>();
-            Container.RegisterTypeForNavigation<BlankPage>();
-            Container.RegisterTypeForNavigation<NavigationPage>();
-            Container.RegisterTypeForNavigation<NewOrderPage>();
-            Container.RegisterTypeForNavigation<ListOrdersPage>();
-            Container.RegisterTypeForNavigation<OrderDetailPage>();
-            Container.RegisterTypeForNavigation<ConfirmOrderPage>();
-            Container.RegisterTypeForNavigation<OrderFinishedPage>();
+            try
+            {
+                // Registrando Views para navegação
+                Container.RegisterTypeForNavigation<LoginPage>();
+                Container.RegisterTypeForNavigation<DashboardPage>();
+                Container.RegisterTypeForNavigation<BlankPage>();
+                Container.RegisterTypeForNavigation<NavigationPage>();
+                Container.RegisterTypeForNavigation<NewOrderPage>();
+                Container.RegisterTypeForNavigation<ListOrdersPage>();
+                Container.RegisterTypeForNavigation<OrderDetailPage>();
+                Container.RegisterTypeForNavigation<ConfirmOrderPage>();
+                Container.RegisterTypeForNavigation<OrderFinishedPage>();
 
-            // Registrando IoC
-            Container.RegisterType(typeof(IBaseRepository<>),
-                                           typeof(BaseRepository<>),
-                                           new ContainerControlledLifetimeManager());
+                // Registrando IoC
+                Container.RegisterType(typeof(IBaseRepository<>),
+                                               typeof(BaseRepository<>),
+                                               new ContainerControlledLifetimeManager());
 
-            Container.RegisterType(typeof(IBaseApplicationService<>),
-                                  typeof(BaseApplicationService<>),
-                                  new ContainerControlledLifetimeManager());
+                Container.RegisterType(typeof(IBaseApplicationService<>),
+                                      typeof(BaseApplicationService<>),
+                                      new ContainerControlledLifetimeManager());
 
-            Container.RegisterType(typeof(IUserApplicationService),
-                                  typeof(UserApplicationServices),
-                                  new ContainerControlledLifetimeManager());
+                Container.RegisterType(typeof(IUserApplicationService),
+                                      typeof(UserApplicationServices),
+                                      new ContainerControlledLifetimeManager());
 
-            // Registrando IoC para instâncias de plugins
-            Container.RegisterInstance(Acr.Settings.Settings.Current);
-            Container.RegisterInstance(Acr.UserDialogs.UserDialogs.Instance);
+                // Registrando IoC para instâncias de plugins
+                Container.RegisterInstance(Acr.Settings.Settings.Current);
+                Container.RegisterInstance(Acr.UserDialogs.UserDialogs.Instance);
 
-            // Registrando IoC para Interfaces próprias (Bot)
-            Container.RegisterType(typeof(IBotConnector), typeof(BotConnector));
+                // Registrando IoC para Interfaces próprias (Bot)
+                Container.RegisterType(typeof(IBotConnector), typeof(BotConnector));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

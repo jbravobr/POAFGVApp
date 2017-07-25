@@ -9,6 +9,7 @@ using Android.Widget;
 using Android.OS;
 using FFImageLoading.Forms.Droid;
 using Xamarin.Forms;
+using HockeyApp.Android;
 
 namespace POAFGVApp.Droid
 {
@@ -31,6 +32,14 @@ namespace POAFGVApp.Droid
 
             //Init Image Circle Plugin
             ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
+
+            CrashManager.Register(this, "2ad8d4a715864e4bbd9bcdc81f7d1e42");
+			//FeedbackManager.Register(this, "$Your_App_Id");
+
+			//Android.Widget.Button feedbackButton = FindViewById<Android.Widget.Button>(Resource.Id.feedback_button);
+			//feedbackButton.Click += delegate {
+			//	FeedbackManager.ShowFeedbackActivity(ApplicationContext);
+			//});
 
             //UserDialogs Init
             Acr.UserDialogs.UserDialogs.Init(() => (Activity)Forms.Context);

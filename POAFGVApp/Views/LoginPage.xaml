@@ -9,7 +9,7 @@
     Title="Login"
     BackgroundColor="Black"
     x:Class="POAFGVApp.Views.LoginPage">
-    <ContentPage.Content>
+   <!-- <ContentPage.Content>
         <StackLayout
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand">
@@ -140,5 +140,5 @@
                 </Label>
             </Grid>
         </StackLayout>
-    </ContentPage.Content>
+    </ContentPage.Content>-->
 </ContentPage>

@@ -46,6 +46,11 @@ namespace POAFGVApp.Tests
                 Password = "admin"
             };
             _viewModel.DoLoginCmd.Execute();
+
+            mockUserService.Verify(x => x.GetAllWithChildrenByPredicateAsync(It.IsAny<Expression<Func<User, bool>>>()), Times.Exactly(10));
+            mockUserService.Verify(x => x.InsertAsync(It.IsAny<User>()), Times.AtLeastOnce());
+
+
         }
     }
 }

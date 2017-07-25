@@ -26,12 +26,17 @@ namespace POAFGVApp.UITests
         }
 
         [Test]
-        public void WelcomeTextIsDisplayed()
+        public void NewTest()
         {
-            AppResult[] results = app.WaitForElement(c => c.Marked("Welcome to Xamarin Forms!"));
-            app.Screenshot("Welcome screen.");
+            app.Tap(x => x.Marked("txtCaixaDeTexto"));
+            app.Screenshot("Tapped on view with class: EntryEditText");
+            app.EnterText(x => x.Marked("EntryEditText"), "quero pedir uma pizza");
+            app.PressEnter();
+            app.Tap(x => x.Marked("CachedImageView"));
+            app.Screenshot("Tapped on view with class: CachedImageView");
 
-            Assert.IsTrue(results.Any());
+#if DEBUG
+#endif
         }
     }
 }
